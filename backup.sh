@@ -1,12 +1,26 @@
-#!/bin/bash
+#!/bin/zsh
+
+# Create the .config directory if it doesn't exist
+if [ ! -d ".config" ]; then
+  mkdir .config
+fi
 
 # Define a list of strings
-strings=("hypr" "wofi" "waybar" "kitty")
+folders=("wofi" "hypr" "waybar" "kitty")
+
+# Define a list of files
+files=("$HOME/.zshrc")
 
 # Loop through each string in the list
-for str in "${strings[@]}"; do
-  cp -r ~/.config/$str ./.config
+for folder in "${folders[@]}"; do
+  cp -r ~/.config/$folder ./.config
   # Add your processing logic here
 done
 
-cp ~/.zshrc .config
+
+# Loop through each string in the list
+for file in "${files[@]}"; do
+  cp $file ./.config
+  # Add your processing logic here
+done
+

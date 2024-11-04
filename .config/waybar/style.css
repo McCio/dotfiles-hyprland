@@ -4,16 +4,15 @@
   border-radius: 4;
   font-family: MesloLGS NF, Regular;
   font-size: 15px;
-  min-height: 28px;
 }
 
 window#waybar {
   background: red;
-  background-color: rgba(43, 48, 59, 0.2);
+  background-color: rgba(43, 48, 59, 0.4);
   color: white;
   transition-property: background-color;
   transition-duration: .5s;
-  border-radius: 0;
+  border-radius: 8px;
 }
 
 window#waybar.hidden {
@@ -97,6 +96,7 @@ window#waybar.solo {
 #idle_inhibitor,
 #custom-notification,
 #custom-logout,
+#custom-logo,
 #sway-scratchpad,
 #bluetooth,
 #mpd {
@@ -304,4 +304,14 @@ label:focus {
 
 #custom-logout {
   background-color: #000000;
+}
+
+#custom-logo {
+  background-color: #ffd21c;
+  transition: background-color .25s;
+  color: #282a36;
+}
+
+#custom-logo:hover {
+  background-color: #75ff3f;
 }

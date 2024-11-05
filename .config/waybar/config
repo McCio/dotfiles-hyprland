@@ -42,7 +42,8 @@
     },
     "format": "🔋 {capacity}%",
     "format-charging": "🔋 {capacity}% (chrg)",
-    "format-plugged": "🔋 {capacity}% (plg)"
+    "format-plugged": "🔋 {capacity}% (plg)",
+    "on-click": "kitty battop"
   },
   "network": {
     "format": "{icon}",

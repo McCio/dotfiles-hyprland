@@ -69,7 +69,7 @@ window#waybar.solo {
 }
 
 #workspaces button.active {
-  background-color: #18cf74;
+  background-color: #fabd2f;
   color: #282a36;
   min-width: 30px
 }
@@ -107,7 +107,7 @@ window#waybar.solo {
 }
 
 #window {
-  background-color: #e66000;
+  background-color: #d65d0e;
   padding: 0 12px;
 }
 
@@ -178,7 +178,7 @@ label:focus {
 }
 
 #bluetooth {
-  background-color: #4e42fd;
+  background-color: #076678;
   color: #f8f8f2;
 }
 
@@ -191,8 +191,6 @@ label:focus {
   background-color: #93eaf9;
   color: #282a36;
 }
-
-
 
 #pulseaudio.muted {
   background-color: #44475a;

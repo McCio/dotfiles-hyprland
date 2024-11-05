@@ -119,6 +119,8 @@ alias weather="curl https://wttr.in"
 alias lofitop="mpv --no-video https://www.youtube.com/watch\?v\=s1K00Fiz_0Q"
 alias ssh-gd="ssh deploy@167.71.42.48 -t 'zsh'"
 
+export TERM=xterm-256color
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

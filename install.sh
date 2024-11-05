@@ -1,7 +1,7 @@
 read -p "Do you want to install the packages? (y/n): " choice
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-  sudo pacman -S hyprland hyprpaper hyprlock hypridle waybar wofi swaync kitty
-  yay -S wlogout hyprshot
+  sudo pacman -S hyprland hyprpaper hyprlock hypridle waybar wofi swaync kitty xdg-desktop-portal-hyprland
+  yay -S wlogout hyprshot battop wob
 else
   echo "Installation aborted."
 fi

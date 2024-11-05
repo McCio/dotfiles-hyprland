@@ -29,7 +29,9 @@
   },
   "memory": {
     "interval": 30,
-    "format": "RAM: {used:0.1f}GB ({percentage}%)"
+    "format": "RAM: {percentage}%",
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f} / {total:0.1f} GB"
   },
   "battery": {
     "bat": "BAT0",
@@ -39,8 +41,8 @@
       "critical": 5
     },
     "format": "🔋 {capacity}%",
-    "format-charging": "🔋 {capacity}% (charging)",
-    "format-plugged": "🔋 {capacity}% (plugged)"
+    "format-charging": "🔋 {capacity}% (chrg)",
+    "format-plugged": "🔋 {capacity}% (plg)"
   },
   "network": {
     "format": "{icon}",
@@ -48,7 +50,7 @@
       "default": ["󰤟", "󰤢", "󰤥", "󰤨"]
     },
     "format-wifi": "{essid} ({signalStrength}%) {icon}",
-    "format-ethernet": "{ifname} 󰈀",
+    "format-ethernet": "Eth 󰈀",
     "format-disconnected": "󱞐",
     "tooltip-format-wifi": "Strenght: {signalStrength}%\nFrequency: {frequency}\nIP: {ipaddr}",
     "tooltip-format-disconnected": "Disconnected"

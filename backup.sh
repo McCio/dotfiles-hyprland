@@ -6,7 +6,7 @@ if [ ! -d ".config" ]; then
 fi
 
 # Define a list of strings
-folders=("wofi" "hypr" "waybar" "kitty")
+folders=("wofi" "hypr" "waybar" "kitty" "swaync" "wlogout")
 
 # Define a list of files
 files=("$HOME/.zshrc")

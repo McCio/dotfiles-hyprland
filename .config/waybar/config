@@ -54,7 +54,9 @@
     "format-ethernet": "Eth 󰈀",
     "format-disconnected": "󱞐",
     "tooltip-format-wifi": "Strenght: {signalStrength}%\nFrequency: {frequency}\nIP: {ipaddr}",
-    "tooltip-format-disconnected": "Disconnected"
+    "tooltip-format-ethernet": "Network: {ifname}\nIP: {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty nmtui"
   },
   "bluetooth": {
     "format": " {status}",

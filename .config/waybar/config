@@ -52,14 +52,16 @@
 	},
 	"battery": {
 		"bat": "BAT0",
+		"interval": 60,
 		"states": {
 			"good": 95,
-			"warning": 30,
-			"critical": 5
+			"warning": 35,
+			"critical": 15
 		},
-		"format": "🔋 {capacity}%",
-		"format-charging": "🔋 {capacity}% (chrg)",
-		"format-plugged": "🔋 {capacity}% (plg)",
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-plugged": "󰂄 {capacity}%",
+		"format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
 		"on-click": "kitty battop"
 	},
 	"network": {
@@ -131,7 +133,7 @@
 		},
 		"format-icons": {
 			"1": "",
-			"2": "",
+			"2": "",
 			"3": "",
 			"4": "",
 			"5": "",

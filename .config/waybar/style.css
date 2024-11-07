@@ -154,6 +154,11 @@ window#waybar.solo {
   animation-direction: alternate;
 }
 
+
+#battery.warning:not(.charging) {
+  background-color: #ffb300;
+}
+
 label:focus {
   background-color: #000000;
 }

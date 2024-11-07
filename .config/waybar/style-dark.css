@@ -134,12 +134,10 @@ window#waybar.solo {
 }
 
 #battery {
-  color: #44475a;
-  background-color: #f8f8f2;
+  color: white;
 }
 
 #battery.charging, #battery.plugged {
-  background-color: #ffffff;
   color: #26A65B;
 }
 
@@ -158,6 +156,10 @@ window#waybar.solo {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+  color: #ffb300;
 }
 
 label:focus {
@@ -308,7 +310,7 @@ label:focus {
 }
 
 #custom-logout {
-  background-color: #282a36;
+  background-color: #000000;
   color: white;
 }
 

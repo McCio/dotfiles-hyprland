@@ -8,9 +8,9 @@
 
 window#waybar {
   background: red;
-  background-color: rgba(43, 48, 59, 0.4);
+  background-color: rgba(43, 48, 59, 0.2);
   color: white;
-  transition-property: background-color;
+  transition-property: color;
   transition-duration: .5s;
   border-radius: 8px;
 }
@@ -31,10 +31,10 @@ tooltip label {
 
 /*
 window#waybar.empty {
-  background-color: transparent;
+  color: transparent;
 }
 window#waybar.solo {
-  background-color: #FFFFFF;
+  color: #FFFFFF;
 }
 */
 
@@ -48,11 +48,11 @@ window#waybar.solo {
 
 #workspaces button {
   padding: 0 0.7em;
-  background-color: rgba(100, 114, 125, 0.5);
-  color: #f8f8f2;
+  color: rgba(166, 176, 184, 0.764);
+  background-color: #171717;
   min-width: 12px;
   border-radius: 0;
-  transition: background-color .25s, color 0.25s, min-width 0.25s;
+  transition: color .25s, color 0.25s, min-width 0.25s;
 }
 
 
@@ -61,21 +61,21 @@ window#waybar.solo {
 }
 
 #workspaces button.focused {
-  background-color: #64727D;
+  color: #64727D;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  color: #eb4d4b;
 }
 
 #workspaces button.active {
-  background-color: #fabd2f;
-  color: #282a36;
+  color: #fabd2f;
+  background-color: #282a36;
   min-width: 30px
 }
 
 #mode {
-  background-color: #64727D;
+  color: #64727D;
   border-bottom: 3px solid #ffffff;
 }
 
@@ -104,12 +104,18 @@ window#waybar.solo {
   padding: 0 10px;
   margin: 6px 3px;
   color: #f8f8f2;
+  background-color: #282a36;
   border-radius: 8px;
 }
 
 #window {
-  background-color: #d65d0e;
+  color: #ff7e15;
   padding: 0 12px;
+}
+
+#workspaces {
+  padding: 0 0 0 8px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -123,30 +129,30 @@ window#waybar.solo {
 }
 
 #clock {
-  background-color: #55a1ff;
-  color: #282a36;
+  color: #55a1ff;
+  background-color: #282a36;
 }
 
 #battery {
-  background-color: #44475a;
-  color: #f8f8f2;
+  color: #44475a;
+  background-color: #f8f8f2;
 }
 
 #battery.charging, #battery.plugged {
-  color: #ffffff;
-  background-color: #26A65B;
+  background-color: #ffffff;
+  color: #26A65B;
 }
 
 @keyframes blink {
   to {
-      background-color: #ffffff;
-      color: #000000;
+      color: #ffffff;
+      background-color: #000000;
   }
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;
+  color: #f53c3c;
+  background-color: #ffffff;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -155,71 +161,70 @@ window#waybar.solo {
 }
 
 label:focus {
-  background-color: #000000;
+  color: #000000;
 }
 
 #cpu {
-  background-color: #b6fa8c;
-  color: #282a36;
+  color: #b6fa8c;
+  background-color: #282a36;
 }
 
 #memory {
-  background-color: #f1fa8c;
-  color: #282a36;
+  color: #f1fa8c;
+  background-color: #282a36;
 }
 
 #backlight {
-  background-color: #90b1b1;
+  color: #90b1b1;
 }
 
 #network {
-  background-color: #adfa50;
-  color: #282a36;
+  color: #adfa50;
+  background-color: #282a36;
   padding-right: 14px;
 }
 
 #bluetooth {
-  background-color: #076678;
-  color: #f8f8f2;
+  color: #1197b2;
 }
 
 #network.disconnected {
-  background-color: #fa5050;
-  color: #282a36;
+  color: #fa5050;
+  background-color: #282a36;
 }
 
 #wireplumber,
 #pulseaudio {
-  background-color: #93eaf9;
-  color: #282a36;
+  color: #93eaf9;
+  background-color: #282a36;
 }
 
 #wireplumber.muted,
 #pulseaudio.muted {
-  background-color: #44475a;
-  color: #f8f8f2;
+  color: #44475a;
+  background-color: #f8f8f2;
 }
 
 #custom-media.custom-spotify {
-  background-color: #66cc99;
+  color: #66cc99;
 }
 
 #custom-media.custom-vlc {
-  background-color: #ffa000;
+  color: #ffa000;
 }
 
 #temperature {
-  background-color: #ff79c6;
-  color: #282a36;
+  color: #ff79c6;
+  background-color: #282a36;
 }
 
 #temperature.critical {
-  background-color: #ff5555;
-  color: #282a36;
+  color: #ff5555;
+  background-color: #282a36;
 }
 
 #tray {
-  background-color: rgba(255, 94, 0, 0.355)
+  color: rgba(255, 94, 0, 0.355)
 }
 
 #tray > .passive {
@@ -228,47 +233,46 @@ label:focus {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-  background-color: #44475a;
-  color: #f8f8f2;
+  color: #eb4d4b;
 }
 
 #idle_inhibitor.activated {
-  background-color: #f8f8f2;
-  color: #44475a;
+  color: #ffdd00;
+  background-color: #050505;
+}
+
+#idle_inhibitor {
+  color: #f8f8f2;
 }
 
 #mpd {
-  background-color: #66cc99;
-  color: #2a5c45;
+  color: #66cc99;
+  background-color: #2a5c45;
 }
 
 #mpd.disconnected {
-  background-color: #f53c3c;
+  color: #f53c3c;
 }
 
 #mpd.stopped {
-  background-color: #90b1b1;
+  color: #90b1b1;
 }
 
 #mpd.paused {
-  background-color: #51a37a;
+  color: #51a37a;
 }
 
 #language {
-  background-color: #f8f8f2;
-  color: #282a36;
+  color: #f8f8f2;
+  background-color: #282a36;
   padding: 0 5px;
   margin: 6px 3px;
   min-width: 16px;
 }
 
 #keyboard-state {
-  background-color: #97e1ad;
-  color: #000000;
+  color: #97e1ad;
+  background-color: #000000;
   padding: 0 0px;
   margin: 0 5px;
   min-width: 16px;
@@ -283,43 +287,44 @@ label:focus {
 }
 
 #custom-weather {
-  background-color: #8be9fd;
-  color: #282a36;
+  color: #8be9fd;
+  background-color: #282a36;
   margin-right: 5;
 }
 
 #disk {
-  background-color: #ffb86c;
-  color: #282a36;
+  color: #ffb86c;
+  background-color: #282a36;
 }
 
 #sway-scratchpad {
-  background-color: #50fa7b;
-  color: #282a36;
+  color: #50fa7b;
+  background-color: #282a36;
 }
 
 #custom-notification {
   font-family: "NotoSansMono Nerd Font";
-  background-color: #282a36;
+  color: white;
 }
 
 #custom-logout {
-  background-color: #000000;
+  background-color: #282a36;
+  color: white;
 }
 
 #custom-logo {
-  background-color: #ffd21c;
-  transition: background-color .25s;
-  color: #282a36;
+  color: #ffd21c;
+  transition: color .25s;
+  background-color: #282a36;
 }
 
 #custom-logo:hover {
-  background-color: #75ff3f;
+  color: #75ff3f;
 }
 
 #temperature.critical {
-  background-color: #ff5555;
-  color: #282a36;
+  color: #ff5555;
+  background-color: #282a36;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;

@@ -90,6 +90,7 @@ window#waybar.solo {
 #backlight,
 #network,
 #pulseaudio,
+#wireplumber,
 #custom-weather,
 #tray,
 #mode,
@@ -187,11 +188,13 @@ label:focus {
   color: #282a36;
 }
 
+#wireplumber,
 #pulseaudio {
   background-color: #93eaf9;
   color: #282a36;
 }
 
+#wireplumber.muted,
 #pulseaudio.muted {
   background-color: #44475a;
   color: #f8f8f2;
@@ -216,7 +219,7 @@ label:focus {
 }
 
 #tray {
-  background-color: rgba(255, 50, 50, 0.431)
+  background-color: rgba(255, 94, 0, 0.355)
 }
 
 #tray > .passive {
@@ -312,4 +315,14 @@ label:focus {
 
 #custom-logo:hover {
   background-color: #75ff3f;
+}
+
+#temperature.critical {
+  background-color: #ff5555;
+  color: #282a36;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }

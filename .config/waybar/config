@@ -16,6 +16,7 @@
 		"temperature",
 		"wireplumber",
 		"battery",
+		"power-profiles-daemon",
 		"custom/notification",
 		"custom/logout"
 	],
@@ -186,5 +187,16 @@
 		"format": "✌️ {}",
 		"max-length": 8,
 		"tooltip": false
+	},
+	"power-profiles-daemon": {
+  "format": "{icon}",
+  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "",
+    "performance": "",
+    "balanced": "",
+    "power-saver": ""
+  	}
 	}
 }

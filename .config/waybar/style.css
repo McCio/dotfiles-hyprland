@@ -100,6 +100,7 @@ window#waybar.solo {
 #custom-logo,
 #sway-scratchpad,
 #bluetooth,
+#power-profiles-daemon,
 #mpd {
   padding: 0 10px;
   margin: 6px 3px;
@@ -330,4 +331,17 @@ label:focus {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+
+#power-profiles-daemon.power-saver {
+  background-color: #92e64d;
+  color: #282a36;
+}
+#power-profiles-daemon.balanced {
+  background-color: #e89818;
+  color: #282a36;
+}
+#power-profiles-daemon.performance {
+  background-color: #ca4a20;
 }

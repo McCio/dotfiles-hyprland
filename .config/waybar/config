@@ -25,7 +25,8 @@
 	"hyprland/window": {
 		"format": "{title}",
 		"max-length": 50,
-		"tooltip-format": "{title}"
+		"tooltip-format": "{title}",
+		"separate-outputs": true
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",
@@ -129,13 +130,16 @@
 			"*": 5
 		},
 		"format-icons": {
-			"1": "",
+			"1": "",
 			"2": "",
 			"3": "",
 			"4": "",
 			"5": "",
 			"6": "",
-			"7": "",
+			"7": "",
+			"8": "󰲮",
+			"9": "󰲰",
+			"10": "󰿬",
 			"default": "",
 			"active `": ""
 		}

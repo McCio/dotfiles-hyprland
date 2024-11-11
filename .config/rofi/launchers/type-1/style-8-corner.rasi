@@ -10,7 +10,7 @@
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,run,filebrowser,ssh,window";
-    show-icons:                 true;
+    show-icons:                 false;
     display-drun:               "󰣇 Apps";
     display-run:                " Run";
     display-filebrowser:        " Files";
@@ -54,12 +54,12 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    center;
-    anchor:                      center;
+    location:                    north east;
+    anchor:                      north east;
     fullscreen:                  false;
-    width:                       800px;
-    x-offset:                    0px;
-    y-offset:                    0px;
+    width:                       600px;
+    x-offset:                    -24px;
+    y-offset:                    24px;
 
     /* properties for all widgets */
     enabled:                     true;

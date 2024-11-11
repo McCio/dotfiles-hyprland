@@ -41,15 +41,17 @@ def parse_wpctl_status():
 output = ''
 sinks = parse_wpctl_status()
 
-for items in sinks:
+position = 0
+for i, items in enumerate(sinks):
     if items['sink_name'].endswith(" - Default"):
         output += f"<b>-> {items['sink_name']}</b>\n"
+        position = i
     else:
         output += f"{items['sink_name']}\n"
 
 # Call wofi and show the list. take the selected sink name and set it as the default sink
-wofi_command = f"echo '{output.strip()}' | wofi --show=dmenu --hide-scroll --allow-markup --define=hide_search=false --location=top_right --width=600 --height=250 --xoffset=-60 --insensitive --prompt=\"Choose audio output\""
-# wofi_command = f"echo '{output.strip()}' | rofi -dmenu --hide-scroll --allow-markup --define=hide_search=false --location=top_right --width=600 --height=250 --xoffset=-60 --insensitive --prompt=\"Choose audio output\""
+# wofi_command = f"echo '{output.strip()}' | wofi --show=dmenu --hide-scroll --allow-markup --define=hide_search=false --location=top_right --width=600 --height=250 --xoffset=-60 --insensitive --prompt=\"Choose audio output\""
+wofi_command = f"echo '{output.strip()}' | rofi -dmenu -i -theme ~/.config/rofi/launchers/type-1/style-8-corner.rasi -window-title \"Audio Output Switcher\" -markup-rows -selected-row {position} -a {position} -p \"Choose audio output\" -l 4"
 wofi_process = subprocess.run(wofi_command, shell=True, encoding='utf-8', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 if wofi_process.returncode != 0:

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+COLOR_SCHEME="$HOME/.cache/wal/colors"
+
+if [ ! -f "$COLOR_SCHEME" ]; then
+  echo "Color scheme file does not exist. Run wal first."
+  exit 1
+fi
+
+COLOR=$(cat $COLOR_SCHEME | pastel color | pastel sort-by chroma -r | pastel format hex | head -1)
+
+color=${COLOR#"#"} # remove the leading '#'
+echo $color

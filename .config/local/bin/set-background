@@ -1,0 +1,21 @@
+#!/bin/bash
+
+WALL_PATH=~/.config/hypr/wallpaper/wallpaper
+COLOR_SCHEME_PATH="${HOME}/.cache/wal/colors.sh"
+
+if [ -z "$1" ]; then
+  echo "No image file provided."
+  exit 1
+fi
+
+if ! file "$1" | grep -qE 'image|bitmap'; then
+  echo "The provided file is not an image."
+  exit 1
+fi
+
+echo setting background to "$1"
+cp "$1" $WALL_PATH
+killall hyprpaper
+nohup hyprpaper &>/dev/null &
+wal -i $1
+openrgb -c $(wal-accent)

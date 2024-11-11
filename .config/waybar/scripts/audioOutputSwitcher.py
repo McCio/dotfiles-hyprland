@@ -49,6 +49,7 @@ for items in sinks:
 
 # Call wofi and show the list. take the selected sink name and set it as the default sink
 wofi_command = f"echo '{output.strip()}' | wofi --show=dmenu --hide-scroll --allow-markup --define=hide_search=false --location=top_right --width=600 --height=250 --xoffset=-60 --insensitive --prompt=\"Choose audio output\""
+# wofi_command = f"echo '{output.strip()}' | rofi -dmenu --hide-scroll --allow-markup --define=hide_search=false --location=top_right --width=600 --height=250 --xoffset=-60 --insensitive --prompt=\"Choose audio output\""
 wofi_process = subprocess.run(wofi_command, shell=True, encoding='utf-8', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 if wofi_process.returncode != 0:

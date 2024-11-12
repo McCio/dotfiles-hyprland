@@ -100,6 +100,7 @@ window#waybar.solo {
 #custom-logo,
 #sway-scratchpad,
 #bluetooth,
+#power-profiles-daemon,
 #mpd {
   padding: 0 10px;
   margin: 6px 3px;
@@ -134,12 +135,10 @@ window#waybar.solo {
 }
 
 #battery {
-  color: #44475a;
-  background-color: #f8f8f2;
+  color: white;
 }
 
 #battery.charging, #battery.plugged {
-  background-color: #ffffff;
   color: #26A65B;
 }
 
@@ -158,6 +157,10 @@ window#waybar.solo {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+  color: #ffb300;
 }
 
 label:focus {
@@ -308,7 +311,7 @@ label:focus {
 }
 
 #custom-logout {
-  background-color: #282a36;
+  background-color: #000000;
   color: white;
 }
 
@@ -330,4 +333,14 @@ label:focus {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #78ff09;
+}
+#power-profiles-daemon.balanced {
+  color: #ffca09;
+}
+#power-profiles-daemon.performance {
+  color: #ff4609;
 }

@@ -180,7 +180,7 @@
 		"return-type": "json",
 		"exec-if": "which hyprsunset",
 		"exec": "sleep 0.2 && ~/.config/hypr/scripts/hyprsunsetToggle.sh -g",
-		"on-click": "~/.config/hypr/scripts/hyprsunsetToggle.sh 4000k",
+		"on-click": "~/.config/hypr/scripts/hyprsunsetToggle.sh 3500k",
 		"escape": true,
 		"interval": "once"
 	},

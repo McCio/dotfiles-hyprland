@@ -92,6 +92,7 @@ window#waybar.solo {
 #pulseaudio,
 #wireplumber,
 #custom-weather,
+#custom-hyprsunset,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -344,4 +345,15 @@ label:focus {
 }
 #power-profiles-daemon.performance {
   background-color: #ca4a20;
+}
+
+
+#custom-hyprsunset.on {
+  background-color: #60dfff;
+  color: #ffe735;
+}
+
+#custom-hyprsunset.off {
+  background-color: rgb(191, 138, 255);
+  color: #282a36;
 }

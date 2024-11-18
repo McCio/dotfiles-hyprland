@@ -17,6 +17,7 @@
 		"wireplumber",
 		"battery",
 		"power-profiles-daemon",
+		"custom/hyprsunset",
 		"custom/notification",
 		"custom/logout"
 	],
@@ -168,13 +169,20 @@
 		"on-click-right": "swaync-client -d -sw",
 		"escape": true
 	},
-	"custom/logo": {
-		"tooltip": false,
+	"custom/hyprsunset": {
+		"tooltip": "Hyprsunset 3500k",
 		"format": "{icon}",
 		"format-icons": {
-			"default": ""
+			"on": "󰽢",
+			"off": ""
 		},
-		"on-click": "kitty"
+		"exec-on-event": true,
+		"return-type": "json",
+		"exec-if": "which hyprsunset",
+		"exec": "sleep 0.2 && ~/.config/hypr/scripts/hyprsunsetToggle.sh -g",
+		"on-click": "~/.config/hypr/scripts/hyprsunsetToggle.sh 4000k",
+		"escape": true,
+		"interval": "once"
 	},
 	"custom/logout": {
 		"tooltip": false,

@@ -49,7 +49,8 @@
 	},
 	"temperature": {
 		"critical-threshold": 60,
-		"format": " {temperatureC}°C"
+		"format": " {temperatureC}°C",
+		"hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"]
 	},
 	"battery": {
 		"bat": "BAT0",
@@ -70,9 +71,9 @@
 		"format-icons": {
 			"default": ["󰤟", "󰤢", "󰤥", "󰤨"]
 		},
-		"format-wifi": "{essid} {icon}",
-		"format-ethernet": "Eth 󰈀",
-		"format-disconnected": "󱞐",
+		"format-wifi": "{icon} {essid}",
+		"format-ethernet": "󰈀 Eth",
+		"format-disconnected": "󱞐 offline",
 		"tooltip-format-wifi": "Strenght: {signalStrength}%\nFrequency: {frequency}\nIP: {ipaddr}",
 		"tooltip-format-ethernet": "Network: {ifname}\nIP: {ipaddr}",
 		"tooltip-format-disconnected": "Disconnected",

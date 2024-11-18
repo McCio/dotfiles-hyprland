@@ -204,8 +204,8 @@ label:focus {
 
 #wireplumber.muted,
 #pulseaudio.muted {
-  color: #44475a;
-  background-color: #f8f8f2;
+  color: #41696f;
+  background-color: #282a36;
 }
 
 #custom-media.custom-spotify {

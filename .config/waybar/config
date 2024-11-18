@@ -112,9 +112,9 @@
 	"wireplumber": {
 		"format": "{icon} {volume}%",
 		"format-icons": {
-			"default": ["\uf026", "\uf027", "\uf028"]
+			"default": ["", "", ""]
 		},
-		"format-muted": " {volume}%",
+		"format-muted": " {volume}%",
 		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "~/.config/waybar/scripts/audioOutputSwitcher.py",
 		"max-volume": 100,

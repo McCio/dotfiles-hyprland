@@ -231,6 +231,25 @@ label:focus {
   color: rgba(255, 94, 0, 0.355)
 }
 
+
+#tray menu {
+  background-color: #282a36;
+  color: #f8f8f2;
+  border: 1px solid #44475a;
+  padding: 8px;
+  margin: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+#tray menuitem {
+  padding: 4px; 
+}
+
+#tray menuitem:hover {
+  background-color: #44475a;
+}
+
 #tray > .passive {
   -gtk-icon-effect: dim;
 }

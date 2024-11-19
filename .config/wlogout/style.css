@@ -24,13 +24,18 @@ button {
 
 button:hover {
 	background-color: #863800;
-	
+	background-size: 29%;
 }
 
 button:focus, button:active {
 	background-color: #b34b00;
 	outline-style: none;
-	border-radius: 32px;
+	/* outline-style: solid;
+	outline-width: 4px;
+	outline-color: #ffb922;
+	outline-radius: 32px; */
+	border-radius: 32px;;
+	background-size: 29%;
 }
 
 

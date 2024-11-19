@@ -326,15 +326,22 @@ label:focus {
 
 #custom-notification {
   font-family: "NotoSansMono Nerd Font";
-  color: white;
+  color: rgb(214, 214, 214);
 }
 
 #custom-notification.notification {
-  background-color: #4f432a;
+  color: #e8a71c;
+}
+
+#custom-notification.dnd-inhibited-notification,
+#custom-notification.dnd-inhibited-none,
+#custom-notification.dnd-notification,
+#custom-notification.dnd-none {
+  color: #505050;
 }
 
 #custom-logout {
-  background-color: #000000;
+  background-color: #272727;
   color: white;
 }
 

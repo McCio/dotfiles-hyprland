@@ -33,9 +33,12 @@
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
-			"activated": "\uf06e",
-			"deactivated": "\uf070"
-		}
+			"activated": "󰅶",
+			"deactivated": "󰾪"
+		},
+		"tooltip": true,
+		"tooltip-format-activated": "Theine mode activated",
+		"tooltip-format-deactivated": "Theine mode deactivated"
 	},
 	"cpu": {
 		"interval": 10,

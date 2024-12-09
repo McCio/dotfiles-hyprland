@@ -40,7 +40,7 @@
 	"cpu": {
 		"interval": 10,
 		"format": " {usage}%",
-		"on-click": "kitty gotop"
+		"on-click": "kitty --class=\"kitty-waybar-tool\" gotop"
 	},
 	"memory": {
 		"interval": 30,

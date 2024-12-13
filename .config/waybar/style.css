@@ -8,11 +8,12 @@
 
 window#waybar {
   background: red;
-  background-color: rgba(43, 48, 59, 0.4);
+  background-color: rgb(43, 48, 59);
   color: white;
   transition-property: background-color;
   transition-duration: .5s;
   border-radius: 8px;
+  padding: 4px
 }
 
 window#waybar.hidden {

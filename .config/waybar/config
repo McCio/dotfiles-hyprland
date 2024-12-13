@@ -68,7 +68,7 @@
 		"format-charging": "󰂄 {capacity}%",
 		"format-plugged": "󰂄 {capacity}%",
 		"format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
-		"on-click": "kitty battop"
+		"on-click": "kitty --class=\"kitty-waybar-tool\" battop"
 	},
 	"network": {
 		"format": "{icon}",
@@ -81,7 +81,7 @@
 		"tooltip-format-wifi": "Strenght: {signalStrength}%\nFrequency: {frequency}\nIP: {ipaddr}",
 		"tooltip-format-ethernet": "Network: {ifname}\nIP: {ipaddr}",
 		"tooltip-format-disconnected": "Disconnected",
-		"on-click": "kitty nmtui"
+		"on-click": "kitty --class=\"kitty-waybar-tool\" nmtui"
 	},
 	"bluetooth": {
 		"format": "{icon}",

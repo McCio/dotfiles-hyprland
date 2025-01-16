@@ -2,7 +2,8 @@
   all: unset;
   border: none;
   border-radius: 4;
-  font-family: MesloLGS NF, Regular;
+  font-family: Doto;
+  font-weight: 900;
   font-size: 15px;
 }
 

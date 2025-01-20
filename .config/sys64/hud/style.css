@@ -69,8 +69,14 @@
 }
 
 /* Levels */
-#syshud .muted {
+#syshud .muted label {
+  color: alpha(@theme_fg_color, 0.4);
 }
+
+#syshug .muted scale.horizontal highlight {
+  background: alpha(@theme_fg_color, 0.1);
+}
+
 #syshud .low {
 }
 #syshud .medium {

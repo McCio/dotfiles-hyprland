@@ -76,6 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -114,11 +115,21 @@ alias rebootwin="sudo bootnext windows now"
 alias open="xdg-open"
 alias vim=nvim
 
+alias sshgd="~/greendecision/tmux-gd-server.sh"
+alias sunshine-env="~/greendecision/tmux-sunshine.sh"
+
+alias spkr="wpctl set-volume @DEFAULT_SINK@"
+alias mic="wpctl set-volume @DEFAULT_SOURCE@"
+
+
 export PATH="/home/berenluth/.local/bin:$PATH"
 export TERM=xterm-256color
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# set the Color scheme based on the background
+# (wal -r &)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

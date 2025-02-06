@@ -7,7 +7,7 @@ else
 fi
 
 # Define a list of strings
-folders=("wofi" "hypr" "waybar" "kitty")
+folders=("wofi" "hypr" "waybar" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout")
 
 # Define a list of files
 files=(".zshrc")

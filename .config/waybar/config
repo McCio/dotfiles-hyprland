@@ -19,7 +19,7 @@
 		"power-profiles-daemon",
 		"custom/hyprsunset",
 		"custom/notification",
-    "clock",
+		"clock",
 		"custom/logout"
 	],
 	"hyprland/mode": {
@@ -55,7 +55,10 @@
 	"temperature": {
 		"critical-threshold": 60,
 		"format": " {temperatureC}°",
-		"hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"]
+		"hwmon-path": [
+			"/sys/class/hwmon/hwmon2/temp1_input",
+			"/sys/class/thermal/thermal_zone0/temp"
+		]
 	},
 	"battery": {
 		"bat": "BAT0",
@@ -207,15 +210,15 @@
 		"tooltip": false
 	},
 	"power-profiles-daemon": {
-  "format": "{icon}",
-  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-	"exec-if": "~/.config/waybar/scripts/shouldShowPowerProfile.sh",
-  "tooltip": true,
-  "format-icons": {
-    "default": "",
-    "performance": "",
-    "balanced": "",
-    "power-saver": ""
-  	}
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"exec-if": "~/.config/waybar/scripts/shouldShowPowerProfile.sh",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		}
 	}
 }

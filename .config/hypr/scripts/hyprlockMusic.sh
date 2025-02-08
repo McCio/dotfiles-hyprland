@@ -35,5 +35,5 @@ if [[ $art_url != "No players found" &&  $current_album != $(cat /tmp/playerctl-
   echo "$current_album" > /tmp/playerctl-album.txt
 fi
 
-echo "<span><b><big>$(playerctl metadata title)</big> </b></span>"
+echo "<span><b><big>$(playerctl metadata title)</big></b></span>"
 

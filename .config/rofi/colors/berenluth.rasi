@@ -1,0 +1,16 @@
+/**
+ *
+ * Author : Fabio Rosada (@Berenluth)
+ * Github : @berenluth
+ * 
+ * Colors
+ **/
+
+* {
+    background:     #0d0909FF;
+    background-alt:rgb(27, 25, 25);
+    foreground:     #e5dac5FF;
+    selected:       #e18d2dFF;
+    active:         #71957bFF;
+    urgent:         #b85024FF;
+}

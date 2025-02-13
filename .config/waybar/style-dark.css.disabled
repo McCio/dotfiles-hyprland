@@ -52,12 +52,13 @@ window#waybar.solo {
   background-color: #171717;
   min-width: 12px;
   border-radius: 0;
-  transition: color .25s, color 0.25s, min-width 0.25s;
+  transition: background-color .25s, color 0.25s, min-width 0.25s;
 }
 
 
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background-color: rgba(17,17,17,0.9);
+  color: rgba(250, 189, 47, 0.9);
 }
 
 #workspaces button.focused {
@@ -69,7 +70,7 @@ window#waybar.solo {
 }
 
 #workspaces button.active {
-  color: #fabd2f;
+  color: rgb(250, 189, 47);
   background-color: #282a36;
   min-width: 30px
 }

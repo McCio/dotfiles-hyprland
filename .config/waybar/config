@@ -27,7 +27,7 @@
 	},
 	"hyprland/window": {
 		"format": "{title}",
-		"max-length": 50,
+		"max-length": 30,
 		"tooltip-format": "{title}",
 		"separate-outputs": true
 	},

@@ -17,6 +17,8 @@ echo setting background to "$1"
 cp "$1" $WALL_PATH
 killall hyprpaper
 nohup hyprpaper &>/dev/null &
+
+echo "Running wal to extract colors"
 wal -i $1
 # openrgb -c $(wal-accent)
 

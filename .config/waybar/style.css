@@ -81,6 +81,7 @@ window#waybar.solo {
 }
 
 #window,
+#submap,
 #workspaces,
 #clock,
 #battery,
@@ -104,16 +105,22 @@ window#waybar.solo {
 #bluetooth,
 #power-profiles-daemon,
 #mpd {
-  padding: 0 10px;
-  margin: 4px 2px;
-  color: #f8f8f2;
-  border-radius: 8px;
+	padding: 0 10px;
+	margin: 4px 2px;
+	color: #f8f8f2;
+	border-radius: 8px;
 }
 
 #window {
   background-color: #d65d0e;
   padding: 0 12px;
 }
+
+/* make window module transparent when no windows present */
+		window#waybar.empty
+		#window {
+		background-color: transparent;
+	}
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
@@ -133,6 +140,12 @@ window#waybar.solo {
 #battery {
   background-color: #44475a;
   color: #f8f8f2;
+}
+
+#submap {
+	color: #f8f8f2;
+	background-color: #ea0000;
+	font-weight: bold;
 }
 
 #battery.charging, #battery.plugged {

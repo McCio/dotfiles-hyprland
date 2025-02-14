@@ -81,6 +81,7 @@ window#waybar.solo {
 }
 
 #window,
+#submap,
 #workspaces,
 #clock,
 #battery,
@@ -113,7 +114,14 @@ window#waybar.solo {
 
 #window {
   color: #ff7e15;
+  background-color: rgba(17,17,17,1);
   padding: 0 12px;
+}
+
+/* make window module transparent when no windows present */
+	window#waybar.empty
+	#window {
+	background-color: transparent;
 }
 
 #workspaces {
@@ -138,6 +146,12 @@ window#waybar.solo {
 
 #battery {
   color: white;
+}
+
+#submap {
+	color: #f8f8f2;
+	background-color: #ea0000;
+	font-weight: bold;
 }
 
 #battery.charging, #battery.plugged {

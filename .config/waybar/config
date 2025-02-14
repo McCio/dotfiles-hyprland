@@ -5,7 +5,7 @@
 	"spacing": 4,
 	"margin": 6,
 	"modules-left": ["hyprland/workspaces", "hyprland/window"],
-	"modules-center": [],
+	"modules-center": ["hyprland/submap"],
 	"modules-right": [
 		"tray",
 		"idle_inhibitor",
@@ -26,10 +26,12 @@
 		"format": "{}"
 	},
 	"hyprland/window": {
-		"format": "{title}",
-		"max-length": 30,
+		"format": "{initialTitle:.25}",
+		"max-length": 25,
 		"tooltip-format": "{title}",
-		"separate-outputs": true
+		"separate-outputs": true,
+		"icon": true,
+		"icon-size": 20
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",
@@ -205,9 +207,10 @@
 		"on-click": "wlogout"
 	},
 	"hyprland/submap": {
-		"format": "✌️ {}",
-		"max-length": 8,
-		"tooltip": false
+		"format": "{} mode",
+		"max-length": 15,
+		"tooltip": false,
+		"on-click": "hyprctl dispatch submap reset"
 	},
 	"power-profiles-daemon": {
 		"format": "{icon}",

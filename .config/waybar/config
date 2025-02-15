@@ -1,248 +1,261 @@
 {
-	"layer": "bottom",
-	"position": "top",
-	"height": 36,
-	"spacing": 4,
-	"margin": 0,
-	"modules-left": [
-	    "hyprland/workspaces",
-        "hyprland/window",
-    ],
-	"modules-center": [
-		"clock",
-	    "hyprland/submap",
-	],
-	"modules-right": [
-		"privacy",
-		"tray",
-		"idle_inhibitor",
-		"network",
-		"bluetooth",
-		"cpu",
-		"memory",
-		"disk",
-		"temperature",
-		"wireplumber",
-		"battery",
-		"power-profiles-daemon",
-		"custom/hyprsunset",
-		"custom/notification",
-		"custom/logout",
-	],
-	"hyprland/mode": {
-		"format": "{}"
-	},
-	"hyprland/window": {
-		"format": "{initialTitle:.25}",
-		"max-length": 25,
-		"tooltip-format": "{title}",
-		"separate-outputs": true,
-		"icon": true,
-		"icon-size": 20
-	},
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "󰅶",
-			"deactivated": "󰾪"
-		},
-		"tooltip": true,
-		"tooltip-format-activated": "Theine mode activated",
-		"tooltip-format-deactivated": "Theine mode deactivated"
-	},
-	"cpu": {
-		"interval": 3,
-		"format": " {usage:2}%",
-		"on-click": "kitty --class=\"kitty-waybar-tool\" htop"
-	},
-	"memory": {
-		"interval": 9,
-		"format": " {used:4.1f}GiB",
-		"tooltip": true,
-		"tooltip-format": "RAM: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)"
-	},
-	"disk": {
-	    "interval": 60,
+  "layer": "bottom",
+  "position": "top",
+  "height": 36,
+  "spacing": 4,
+  "margin": 0,
+  "modules-left": [
+    "hyprland/workspaces",
+    "tray",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "privacy",
+    "clock",
+      "hyprland/submap"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "temperature",
+    "disk",
+    "network",
+    "bluetooth",
+    "wireplumber",
+    "custom/microphone",
+    "battery",
+    "power-profiles-daemon",
+    "custom/hyprsunset",
+    "custom/notification",
+    "idle_inhibitor",
+    "custom/logout"
+  ],
+  "hyprland/mode": {
+    "format": "{}"
+  },
+  "hyprland/window": {
+    "format": "{initialTitle:.25}",
+    "max-length": 25,
+    "tooltip-format": "{title}",
+    "separate-outputs": true,
+    "icon": true,
+    "icon-size": 20
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾪"
+    },
+    "tooltip": true,
+    "tooltip-format-activated": "Theine mode activated",
+    "tooltip-format-deactivated": "Theine mode deactivated"
+  },
+  "cpu": {
+    "interval": 3,
+    "format": " {usage:2}%",
+    "on-click": "kitty --class=\"kitty-waybar-tool\" htop"
+  },
+  "memory": {
+    "interval": 9,
+    "format": " {used:4.1f}GiB",
+    "tooltip": true,
+    "tooltip-format": "RAM: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)"
+  },
+  "disk": {
+      "interval": 60,
         "format": " {specific_free:4.1f}GiB",
         "unit": "GiB",
         "tooltip": true,
         "tooltip-format": "Disk: {used} / {total} ({percentage_used}%)",
         "on-click": "baobab",
-	},
-	"temperature": {
-		"critical-threshold": 60,
-		"format": " {temperatureC}°",
-		"hwmon-path": [
-			"/sys/class/hwmon/hwmon2/temp1_input",
-			"/sys/class/thermal/thermal_zone0/temp"
-		]
-	},
-	"battery": {
-		"bat": "BAT0",
-		"interval": 60,
-		"states": {
-			"good": 95,
-			"warning": 35,
-			"critical": 15
-		},
-		"tooltip-format": "󰂄 {capacity}%\t󰿷 {health}%\t {cycles}\n{timeTo}",
-		"format": "{icon}",
-		"format-charging": "󰂄",
-		"format-plugged":  "󰂄", /*"󰂄 {capacity}%",*/
-		"format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
-		"on-click": "kitty --class=\"kitty-waybar-tool\" battop"
-	},
-	"network": {
-		"format": "{icon}",
-		"format-icons": {
-			"default": ["󰤟", "󰤢", "󰤥", "󰤨"]
-		},
-		"format-wifi": "{icon} {essid}",
-		"format-ethernet": "󰈀 {ifname}",
-		"format-disconnected": "󱞐 offline",
-		"tooltip-format-wifi": "Strenght: {signalStrength}%\nFrequency: {frequency}\nIP: {ipaddr}",
-		"tooltip-format-ethernet": "Network: {ifname}\nIP: {ipaddr}",
-		"tooltip-format-disconnected": "Disconnected",
-		"on-click": "kitty --class=\"kitty-waybar-tool\" nmtui"
-	},
-	"bluetooth": {
-		"format": "{icon}",
-		"format-icons": {
-			"on": "",
-			"off": "󰂲",
-			"default": ["󰤾", "󰥁", "󰥄", "󰥈"]
-		},
-		"format-connected": "{icon} {device_alias}",
-		"format-connected-battery": "{icon} {device_alias}",
-		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-		"on-click": "kitty --class=\"kitty-waybar-tool\" bluetuith",
-		"max-length": 20
-	},
-	"clock": {
-		"format": "{:%H:%M}",
-		"tooltip-format": "<tt>{calendar}</tt>",
-		"calendar": {
-			"format": {
-				"months": "<span color='#ffead3'><b>{}</b></span>",
-				"today": "<span color='#ff6699'><b>{}</b></span>"
-			}
-		},
-		"on-click": "thunderbird --calendar && hyprctl dispatch workspace 5"
-	},
-	"privacy": {
-    	"icon-spacing": 4,
-    	"icon-size": 18,
-    	"transition-duration": 250,
-    	"modules": [
-    		{
-    			"type": "screenshare",
-    		},
-    		{
-    			"type": "audio-in",
-    		}
-    	]
+  },
+  "temperature": {
+    "critical-threshold": 60,
+    "format": " {temperatureC}°",
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon2/temp1_input",
+      "/sys/class/thermal/thermal_zone0/temp"
+    ]
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+      "good": 95,
+      "warning": 35,
+      "critical": 15
     },
-	"wireplumber": {
-		"format": "{icon}",
-		"format-icons": {
-			"default": ["", "", ""]
-		},
-		"format-muted": " {volume}%",
-		"tooltip-format": "{node_name} {volume}%",
-		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "~/.config/waybar/scripts/audioOutputSwitcher.py",
-		"max-volume": 100,
-		"scroll-step": 2
-	},
-	"tray": {
-		"icon-size": 20,
-		"spacing": 10
-	},
-	"hyprland/workspaces": {
-		"format": "{icon}",
-		"on-scroll-up": "hyprctl dispatch workspace e+1",
-		"on-scroll-down": "hyprctl dispatch workspace e-1",
-		"active-only": false,
-		"persistent-workspaces": {
-			"*": 5
-		},
-		"format-icons": {
-			"1": "",
-			"2": "",
-			"3": "",
-			"4": "",
-			"5": "",
-			"6": "",
-			"7": "",
-			"8": "󰲮",
-			"9": "󰲰",
-			"10": "󰿬",
-			"default": "",
-			/*"active": "",*/
-		}
-	},
-	"custom/notification": {
-		"tooltip": false,
-		"format": "{} {icon}",
-		"format-icons": {
-			"notification": "",
-			"none": "",
-			"dnd-notification": "",
-			"dnd-none": "",
-			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
-			"inhibited-none": "",
-			"dnd-inhibited-notification": "<span foreground='white'><sup></sup></span>",
-			"dnd-inhibited-none": ""
-		},
-		"return-type": "json",
-		"exec-if": "which swaync-client",
-		"exec": "swaync-client -swb",
-		"on-click": "swaync-client -t -sw",
-		"on-click-right": "swaync-client -d -sw",
-		"escape": true
-	},
-	"custom/hyprsunset": {
-		"tooltip": "Hyprsunset 3900k",
-		"format": "{icon}",
-		"format-icons": {
-			"on": "",
-			"off": "󰽢"
-		},
-		"exec-on-event": true,
-		"return-type": "json",
-		// "exec-if": "~/.config/waybar/scripts/shouldShowHyprsunset.sh",
-		"exec": "sleep 0.2 && ~/.config/hypr/scripts/hyprsunsetToggle.sh -g",
-		"on-click": "~/.config/hypr/scripts/hyprsunsetToggle.sh 3900k",
-		"escape": true,
-		"interval": "once"
-	},
-	"custom/logout": {
-		"tooltip": false,
-		"format": "{icon}",
-		"format-icons": {
-			"default": "  "
-		},
-		"on-click": "wlogout"
-	},
-	"hyprland/submap": {
-		"format": "{} mode",
-		"max-length": 15,
-		"tooltip": false,
-		"on-click": "hyprctl dispatch submap reset"
-	},
-	"power-profiles-daemon": {
-		"format": "{icon}",
-		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-		"exec-if": "~/.config/waybar/scripts/shouldShowPowerProfile.sh",
-		"tooltip": true,
-		"format-icons": {
-			"default": "",
-			"performance": "",
-			"balanced": "",
-			"power-saver": ""
-		}
-	}
+    "tooltip-format": "󰂄 {capacity}%\t󰿷 {health}%\t {cycles}\n{timeTo}",
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-plugged":  "󰂄", /*"󰂄 {capacity}%",*/
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
+    "on-click": "kitty --class=\"kitty-waybar-tool\" battop"
+  },
+  "network": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": ["󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": "󱞐 offline",
+    "tooltip-format-wifi": "Strenght: {signalStrength}%\nFrequency: {frequency}\nIP: {ipaddr}",
+    "tooltip-format-ethernet": "Network: {ifname}\nIP: {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty --class=\"kitty-waybar-tool\" nmtui"
+  },
+  "bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+      "on": "",
+      "off": "󰂲",
+      "default": ["󰤾", "󰥁", "󰥄", "󰥈"]
+    },
+    "format-connected": "{icon} {device_alias}",
+    "format-connected-battery": "{icon} {device_alias}",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "kitty --class=\"kitty-waybar-tool\" bluetuith",
+    "max-length": 20
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M:%S}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+            "weeks-pos": "left",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "on-click-middle": "thunderbird --calendar && hyprctl dispatch workspace 5"
+  },
+  "privacy": {
+      "icon-spacing": 4,
+      "icon-size": 18,
+      "transition-duration": 250,
+      "modules": [
+        {
+          "type": "screenshare"
+        },
+        {
+          "type": "audio-in"
+        }
+      ]
+    },
+  "wireplumber": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "format-muted": "",
+    "tooltip-format": "{node_name} {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "~/.config/waybar/scripts/audioOutputSwitcher.py",
+    "max-volume": 100,
+    "scroll-step": 2
+  },
+  "custom/microphone": {
+    "exec": "~/.config/waybar/scripts/audioSourceStatus.sh",
+    "return-type": "json",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 2%+ --limit 1",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 2%- --limit 1",
+    "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+    "on-click-right": "~/.config/waybar/scripts/micSwitcher.py",
+    "interval": 1
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "active-only": false,
+    "persistent-workspaces": {
+      "*": 5
+    },
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "󰲮",
+      "9": "󰲰",
+      "10": "󰿬",
+      "default": "",
+      /*"active": "",*/
+    }
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{} {icon}",
+    "format-icons": {
+      "notification": "",
+      "none": "",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='white'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/hyprsunset": {
+    "tooltip": "Hyprsunset 3900k",
+    "format": "{icon}",
+    "format-icons": {
+      "on": "",
+      "off": "󰽢"
+    },
+    "exec-on-event": true,
+    "return-type": "json",
+    // "exec-if": "~/.config/waybar/scripts/shouldShowHyprsunset.sh",
+    "exec": "sleep 0.2 && ~/.config/hypr/scripts/hyprsunsetToggle.sh -g",
+    "on-click": "~/.config/hypr/scripts/hyprsunsetToggle.sh 3900k",
+    "escape": true,
+    "interval": "once"
+  },
+  "custom/logout": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "  "
+    },
+    "on-click": "wlogout"
+  },
+  "hyprland/submap": {
+    "format": "{} mode",
+    "max-length": 15,
+    "tooltip": false,
+    "on-click": "hyprctl dispatch submap reset"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "exec-if": "~/.config/waybar/scripts/shouldShowPowerProfile.sh",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  }
 }

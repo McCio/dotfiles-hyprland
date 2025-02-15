@@ -124,6 +124,7 @@ alias top='gotop -ap --nvidia'
 alias weather='curl wttr.in/marghera'
 alias open='xdg-open'
 alias neofetch='fastfetch'
+alias mic='wpctl set-volume @DEFAULT_SOURCE@'
 export PATH="$PATH:$HOME/.bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.cargo/bin"

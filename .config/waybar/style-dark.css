@@ -95,6 +95,7 @@ window#waybar.solo {
 #network,
 #pulseaudio,
 #wireplumber,
+#custom-microphone,
 #custom-weather,
 #tray,
 #mode,
@@ -215,13 +216,15 @@ label:focus {
 }
 
 #wireplumber,
-#pulseaudio {
+#pulseaudio,
+#custom-microphone {
     color: #93eaf9;
     background-color: #282a36;
 }
 
 #wireplumber.muted,
-#pulseaudio.muted {
+#pulseaudio.muted,
+#custom-microphone.muted {
     color: #41696f;
     background-color: #282a36;
 }

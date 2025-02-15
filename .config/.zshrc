@@ -115,6 +115,7 @@ alias weather="curl wttr.in"
 alias rebootwin="sudo bootnext windows now"
 alias open="xdg-open"
 alias vim=nvim
+alias mic='wpctl set-volume @DEFAULT_SOURCE@'
 
 alias sshgd="~/greendecision/tmux-gd-server.sh"
 alias sunshine-env="~/greendecision/tmux-sunshine.sh"

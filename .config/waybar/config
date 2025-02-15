@@ -1,26 +1,33 @@
 {
 	"layer": "bottom",
 	"position": "top",
-	"height": 40,
+	"height": 36,
 	"spacing": 4,
-	"margin": 6,
-	"modules-left": ["hyprland/workspaces", "hyprland/window"],
-	"modules-center": ["hyprland/submap"],
+	"margin": 0,
+	"modules-left": [
+	    "hyprland/workspaces",
+        "hyprland/window",
+    ],
+	"modules-center": [
+		"clock",
+	    "hyprland/submap",
+	],
 	"modules-right": [
+		"privacy",
 		"tray",
 		"idle_inhibitor",
 		"network",
 		"bluetooth",
 		"cpu",
 		"memory",
+		"disk",
 		"temperature",
 		"wireplumber",
 		"battery",
 		"power-profiles-daemon",
 		"custom/hyprsunset",
 		"custom/notification",
-		"clock",
-		"custom/logout"
+		"custom/logout",
 	],
 	"hyprland/mode": {
 		"format": "{}"
@@ -44,15 +51,23 @@
 		"tooltip-format-deactivated": "Theine mode deactivated"
 	},
 	"cpu": {
-		"interval": 10,
-		"format": " {usage}%",
-		"on-click": "kitty --class=\"kitty-waybar-tool\" gotop"
+		"interval": 3,
+		"format": " {usage:2}%",
+		"on-click": "kitty --class=\"kitty-waybar-tool\" htop"
 	},
 	"memory": {
-		"interval": 30,
-		"format": " {percentage}%",
+		"interval": 9,
+		"format": " {used:4.1f}GiB",
 		"tooltip": true,
-		"tooltip-format": "RAM: {used:0.1f} / {total:0.1f} GB"
+		"tooltip-format": "RAM: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)"
+	},
+	"disk": {
+	    "interval": 60,
+        "format": " {specific_free:4.1f}GiB",
+        "unit": "GiB",
+        "tooltip": true,
+        "tooltip-format": "Disk: {used} / {total} ({percentage_used}%)",
+        "on-click": "baobab",
 	},
 	"temperature": {
 		"critical-threshold": 60,
@@ -70,9 +85,10 @@
 			"warning": 35,
 			"critical": 15
 		},
-		"format": "{icon} {capacity}%",
-		"format-charging": "󰂄 {capacity}%",
-		"format-plugged": "󰂄 {capacity}%",
+		"tooltip-format": "󰂄 {capacity}%\t󰿷 {health}%\t {cycles}\n{timeTo}",
+		"format": "{icon}",
+		"format-charging": "󰂄",
+		"format-plugged":  "󰂄", /*"󰂄 {capacity}%",*/
 		"format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
 		"on-click": "kitty --class=\"kitty-waybar-tool\" battop"
 	},
@@ -82,7 +98,7 @@
 			"default": ["󰤟", "󰤢", "󰤥", "󰤨"]
 		},
 		"format-wifi": "{icon} {essid}",
-		"format-ethernet": "󰈀 Eth",
+		"format-ethernet": "󰈀 {ifname}",
 		"format-disconnected": "󱞐 offline",
 		"tooltip-format-wifi": "Strenght: {signalStrength}%\nFrequency: {frequency}\nIP: {ipaddr}",
 		"tooltip-format-ethernet": "Network: {ifname}\nIP: {ipaddr}",
@@ -116,21 +132,26 @@
 		},
 		"on-click": "thunderbird --calendar && hyprctl dispatch workspace 5"
 	},
-	"pulseaudio": {
-		"format": "{icon} {volume}%",
-		"format-icons": {
-			"default": ["\uf026", "\uf027", "\uf028"]
-		},
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "~/.config/waybar/scripts/audioOutputSwitcher.py",
-		"format-muted": "\uf00d {volume}%"
-	},
+	"privacy": {
+    	"icon-spacing": 4,
+    	"icon-size": 18,
+    	"transition-duration": 250,
+    	"modules": [
+    		{
+    			"type": "screenshare",
+    		},
+    		{
+    			"type": "audio-in",
+    		}
+    	]
+    },
 	"wireplumber": {
-		"format": "{icon} {volume}%",
+		"format": "{icon}",
 		"format-icons": {
 			"default": ["", "", ""]
 		},
 		"format-muted": " {volume}%",
+		"tooltip-format": "{node_name} {volume}%",
 		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "~/.config/waybar/scripts/audioOutputSwitcher.py",
 		"max-volume": 100,
@@ -160,7 +181,7 @@
 			"9": "󰲰",
 			"10": "󰿬",
 			"default": "",
-			"active `": ""
+			/*"active": "",*/
 		}
 	},
 	"custom/notification": {
@@ -184,17 +205,17 @@
 		"escape": true
 	},
 	"custom/hyprsunset": {
-		"tooltip": "Hyprsunset 3500k",
+		"tooltip": "Hyprsunset 3900k",
 		"format": "{icon}",
 		"format-icons": {
-			"on": "󰽢",
-			"off": ""
+			"on": "",
+			"off": "󰽢"
 		},
 		"exec-on-event": true,
 		"return-type": "json",
-		"exec-if": "~/.config/waybar/scripts/shouldShowHyprsunset.sh",
+		// "exec-if": "~/.config/waybar/scripts/shouldShowHyprsunset.sh",
 		"exec": "sleep 0.2 && ~/.config/hypr/scripts/hyprsunsetToggle.sh -g",
-		"on-click": "~/.config/hypr/scripts/hyprsunsetToggle.sh 3500k",
+		"on-click": "~/.config/hypr/scripts/hyprsunsetToggle.sh 3900k",
 		"escape": true,
 		"interval": "once"
 	},

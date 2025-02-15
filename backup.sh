@@ -6,7 +6,7 @@ if [ ! -d ".config" ]; then
 fi
 
 # Define a list of strings
-folders=("wofi" "hypr" "waybar" "kitty" "swaync" "wlogout" "rofi")
+folders=("hypr" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "wob")
 
 # Define a list of files
 files=("$HOME/.zshrc")
@@ -17,8 +17,7 @@ for folder in "${folders[@]}"; do
   # Add your processing logic here
 done
 
-cp -R ~/.local/bin .config/local
-
+cp -r ~/.local/bin ./.local
 
 # Loop through each string in the list
 for file in "${files[@]}"; do

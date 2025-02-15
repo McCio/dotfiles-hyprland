@@ -1,13 +1,19 @@
 read -p "Do you want to install the packages? (y/n): " choice
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-  sudo pacman -S hyprland hyprpaper hyprlock hypridle waybar wofi swaync kitty xdg-desktop-portal-hyprland
-  yay -S wlogout hyprshot battop wob
+  yay -S hyprland hyprpaper hyprlock hypridle waybar swaync kitty xdg-desktop-portal-hyprland wlogout hyprshot battop wob syshud hyprsunset rofi-wayland python-pywal
+  yay -S --asdeps ddcutil
+  hyprpm add https://github.com/hyprwm/hyprland-plugins
+  hyprpm add https://github.com/Duckonaut/split-monitor-workspaces
+  hyprpm enable split-monitor-workspaces
+  hyprpm enable hyprexpo
+  hyprpm reload
 else
   echo "Installation aborted."
+  exit 1
 fi
 
 # Define a list of strings
-folders=("wofi" "hypr" "waybar" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout")
+folders=("hypr" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "wob")
 
 # Define a list of files
 files=(".zshrc")

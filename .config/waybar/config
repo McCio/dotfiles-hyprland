@@ -63,12 +63,12 @@
     "tooltip-format": "RAM: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)"
   },
   "disk": {
-      "interval": 60,
-        "format": " {specific_free:4.1f}GiB",
-        "unit": "GiB",
-        "tooltip": true,
-        "tooltip-format": "Disk: {used} / {total} ({percentage_used}%)",
-        "on-click": "baobab",
+    "interval": 60,
+    "format": " {specific_free:4.1f}GiB",
+    "unit": "GiB",
+    "tooltip": true,
+    "tooltip-format": "Disk: {used} / {total} ({percentage_used}%)",
+    "on-click": "baobab"
   },
   "temperature": {
     "critical-threshold": 60,
@@ -89,7 +89,7 @@
     "tooltip-format": "󰂄 {capacity}%\t󰿷 {health}%\t {cycles}\n{timeTo}",
     "format": "{icon}",
     "format-charging": "󰂄",
-    "format-plugged":  "󰂄", /*"󰂄 {capacity}%",*/
+    "format-plugged":  "󰂄",
     "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
     "on-click": "kitty --class=\"kitty-waybar-tool\" battop"
   },
@@ -141,12 +141,8 @@
       "icon-size": 18,
       "transition-duration": 250,
       "modules": [
-        {
-          "type": "screenshare"
-        },
-        {
-          "type": "audio-in"
-        }
+        { "type": "screenshare" },
+        { "type": "audio-in" }
       ]
     },
   "wireplumber": {
@@ -179,22 +175,20 @@
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1",
     "active-only": false,
+    "show-special": true,
+    "special-visible-only": true,
     "persistent-workspaces": {
       "*": 5
     },
     "format-icons": {
       "1": "",
-      "2": "",
+      "2": "",
       "3": "",
       "4": "",
       "5": "",
       "6": "",
       "7": "",
-      "8": "󰲮",
-      "9": "󰲰",
-      "10": "󰿬",
-      "default": "",
-      /*"active": "",*/
+      "default": ""
     }
   },
   "custom/notification": {
@@ -226,7 +220,6 @@
     },
     "exec-on-event": true,
     "return-type": "json",
-    // "exec-if": "~/.config/waybar/scripts/shouldShowHyprsunset.sh",
     "exec": "sleep 0.2 && ~/.config/hypr/scripts/hyprsunsetToggle.sh -g",
     "on-click": "~/.config/hypr/scripts/hyprsunsetToggle.sh 3900k",
     "escape": true,

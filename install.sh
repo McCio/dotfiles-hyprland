@@ -3,8 +3,6 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
   yay -S hyprland hyprpaper hyprlock hypridle waybar swaync kitty xdg-desktop-portal-hyprland wlogout hyprshot battop wob syshud hyprsunset rofi-wayland python-pywal
   yay -S --asdeps ddcutil
   hyprpm add https://github.com/hyprwm/hyprland-plugins
-  hyprpm add https://github.com/Duckonaut/split-monitor-workspaces
-  hyprpm enable split-monitor-workspaces
   hyprpm enable hyprexpo
   hyprpm reload
 else

@@ -98,6 +98,7 @@
     "on-click": "kitty --class=\"kitty-waybar-tool\" battop"
   },
   "network": {
+    "interval": 2,
     "format": "{icon}",
     "format-icons": {
       "default": ["󰤟", "󰤢", "󰤥", "󰤨"]
@@ -105,8 +106,8 @@
     "format-wifi": "{icon} {essid}",
     "format-ethernet": "󰈀 {ifname}",
     "format-disconnected": "󱞐 offline",
-    "tooltip-format-wifi": "Strenght: {signalStrength}%\nFrequency: {frequency}\nIP: {ipaddr}",
-    "tooltip-format-ethernet": "Network: {ifname}\nIP: {ipaddr}",
+    "tooltip-format-wifi": "  {bandwidthUpBytes}  {bandwidthDownBytes}\n{ipaddr}\n{frequency}GHz @ {signalStrength}%",
+    "tooltip-format-ethernet": "  {bandwidthUpBytes}  {bandwidthDownBytes}\n{ipaddr}/{cidr}\n{ifname} @ {gwaddr}",
     "tooltip-format-disconnected": "Disconnected",
     "on-click": "kitty --class=\"kitty-waybar-tool\" nmtui"
   },

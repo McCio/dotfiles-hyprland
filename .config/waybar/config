@@ -34,12 +34,16 @@
     "format": "{}"
   },
   "hyprland/window": {
-    "format": "{initialTitle:.25}",
-    "max-length": 25,
-    "tooltip-format": "{title}",
+    "format": "{title}",
+    "max-length": 42,
+    "tooltip-format": "{initialTitle}: {title}",
     "separate-outputs": true,
     "icon": true,
-    "icon-size": 20
+    "icon-size": 24,
+    "rewrite": {
+      "(.*) - Zen Browser": "$1",
+      "(.*) - Mozilla Firefox": "$1",
+    }
   },
   "idle_inhibitor": {
     "format": "{icon}",

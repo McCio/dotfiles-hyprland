@@ -4,11 +4,10 @@
 	"height": 40,
 	"spacing": 4,
 	"margin": 6,
-	"modules-left": ["hyprland/workspaces", "hyprland/window"],
-	"modules-center": ["hyprland/submap"],
+	"modules-left": ["hyprland/submap", "hyprland/workspaces", "hyprland/window"],
+	"modules-center": ["clock"],
 	"modules-right": [
 		"tray",
-		"idle_inhibitor",
 		"network",
 		"bluetooth",
 		"cpu",
@@ -18,8 +17,8 @@
 		"battery",
 		"power-profiles-daemon",
 		"custom/hyprsunset",
+		"idle_inhibitor",
 		"custom/notification",
-		"clock",
 		"custom/logout"
 	],
 	"hyprland/mode": {

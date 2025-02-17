@@ -135,6 +135,15 @@
 		"max-volume": 100,
 		"scroll-step": 2
 	},
+    "custom/microphone": {
+        "exec": "~/.config/waybar/scripts/audioSourceStatus.sh",
+        "return-type": "json",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 2%+ --limit 1",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 2%- --limit 1",
+        "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-right": "~/.config/hypr/scripts/micSwitcher.py",
+        "interval": 1
+    },
 	"tray": {
 		"icon-size": 20,
 		"spacing": 10

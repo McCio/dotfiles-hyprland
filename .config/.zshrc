@@ -4,6 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -114,6 +115,7 @@ alias weather="curl wttr.in"
 alias rebootwin="sudo bootnext windows now"
 alias open="xdg-open"
 alias vim=nvim
+alias mic='wpctl set-volume @DEFAULT_SOURCE@'
 
 alias sshgd="~/greendecision/tmux-gd-server.sh"
 alias sunshine-env="~/greendecision/tmux-sunshine.sh"

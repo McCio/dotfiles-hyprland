@@ -7,12 +7,12 @@
   "modules-left": [
     "hyprland/workspaces",
     "tray",
+    "hyprland/submap",
     "hyprland/window"
   ],
   "modules-center": [
-    "privacy",
     "clock",
-      "hyprland/submap"
+    "privacy"
   ],
   "modules-right": [
     "cpu",
@@ -21,15 +21,38 @@
     "disk",
     "network",
     "bluetooth",
-    "wireplumber",
-    "custom/microphone",
+    "group/audio",
     "battery",
-    "power-profiles-daemon",
     "custom/hyprsunset",
     "custom/notification",
-    "idle_inhibitor",
-    "custom/logout"
+    "group/power"
   ],
+  "group/power": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/logout",
+      "power-profiles-daemon",
+      "idle_inhibitor",
+      "backlight"
+    ]
+  },
+  "group/audio": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "wireplumber",
+      "custom/microphone"
+    ]
+  },
   "hyprland/mode": {
     "format": "{}"
   },
@@ -258,5 +281,10 @@
       "balanced": "",
       "power-saver": ""
     }
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
   }
 }

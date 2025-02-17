@@ -7,7 +7,6 @@
   "modules-left": [
     "hyprland/workspaces",
     "tray",
-    "hyprland/submap",
     "hyprland/window"
   ],
   "modules-center": [
@@ -15,6 +14,7 @@
     "privacy"
   ],
   "modules-right": [
+    "hyprland/submap",
     "cpu",
     "memory",
     "temperature",
@@ -285,6 +285,8 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "{percent}% {icon}",
-    "format-icons": ["", ""]
+    "format-icons": ["", ""],
+    "reverse-scrolling": true,
+    "reverse-muse-scrolling": true
   }
 }

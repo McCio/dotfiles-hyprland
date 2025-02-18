@@ -82,6 +82,7 @@ window#waybar.solo {
 
 #window,
 #submap,
+#user,
 #workspaces,
 #clock,
 #battery,
@@ -102,6 +103,7 @@ window#waybar.solo {
 #custom-logout,
 #custom-logo,
 #custom-hyprsunset,
+#custom-nvidia,
 #sway-scratchpad,
 #bluetooth,
 #power-profiles-daemon,
@@ -189,6 +191,11 @@ label:focus {
   background-color: #282a36;
 }
 
+#user {
+	color: #ffa125;
+	background-color: #282a36;
+}
+
 #memory {
   color: #f1fa8c;
   background-color: #282a36;
@@ -233,6 +240,10 @@ label:focus {
 
 #custom-media.custom-vlc {
   color: #ffa000;
+}
+
+#custom-nvidia {
+	color: #65d800;
 }
 
 #temperature {

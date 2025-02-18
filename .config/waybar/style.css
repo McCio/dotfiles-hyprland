@@ -82,6 +82,7 @@ window#waybar.solo {
 
 #window,
 #submap,
+#user,
 #workspaces,
 #clock,
 #battery,
@@ -96,6 +97,7 @@ window#waybar.solo {
 #custom-weather,
 #custom-microphone,
 #custom-hyprsunset,
+#custom-nvidia,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -181,8 +183,14 @@ label:focus {
 }
 
 #cpu {
-  background-color: #b6fa8c;
-  color: #282a36;
+	background-color: #b6fa8c;
+	background-color: #ff7d7d;
+	color: #282a36;
+}
+
+#user {
+	background-color: #ffa125;
+	color: #282a36;
 }
 
 #memory {
@@ -230,6 +238,11 @@ label:focus {
 
 #custom-media.custom-vlc {
   background-color: #ffa000;
+}
+
+#custom-nvidia {
+	background-color: #65d800;
+	color: #282a36;
 }
 
 #temperature {

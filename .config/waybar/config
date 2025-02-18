@@ -10,36 +10,47 @@
 		"tray",
 		"network",
 		"bluetooth",
-		"cpu",
+		"group/monitor",
 		"memory",
 		"temperature",
 		"disk",
 		"group/audio",
 		"battery",
-		"custom/hyprsunset",
 		"custom/notification",
 		"group/power"
 	],
+	"group/monitor": {
+		"orientation": "horizontal",
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "not-power",
+			"transition-left-to-right": false
+		},
+		"modules": ["cpu", "custom/nvidia"]
+	},
 	"group/power": {
 		"orientation": "horizontal",
 		"drawer": {
-        "transition-duration": 500,
-        "children-class": "not-power",
-        "transition-left-to-right": false
-    },
+			"transition-duration": 500,
+			"children-class": "not-power",
+			"transition-left-to-right": false
+		},
 		"modules": [
-		
-		"custom/logout", "power-profiles-daemon","idle_inhibitor", "backlight"]
+			"custom/logout",
+			"power-profiles-daemon",
+			"idle_inhibitor",
+			"backlight",
+			"custom/hyprsunset"
+		]
 	},
 	"group/audio": {
 		"orientation": "horizontal",
 		"drawer": {
-        "transition-duration": 500,
-        "children-class": "not-power",
-        "transition-left-to-right": false
-    },
-		"modules": [
-		"wireplumber", "custom/microphone"]
+			"transition-duration": 500,
+			"children-class": "not-power",
+			"transition-left-to-right": false
+		},
+		"modules": ["wireplumber", "custom/microphone"]
 	},
 	"hyprland/mode": {
 		"format": "{}"
@@ -128,12 +139,25 @@
 	},
 	"clock": {
 		"format": "{:%H:%M}",
-		"tooltip-format": "<tt>{calendar}</tt>",
+		"format-alt": "{:%A, %B %d, %Y (%R)}  ",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
 			"format": {
 				"months": "<span color='#ffead3'><b>{}</b></span>",
-				"today": "<span color='#ff6699'><b>{}</b></span>"
+				"days": "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
 			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
 		},
 		"on-click": "thunderbird --calendar && hyprctl dispatch workspace 5"
 	},
@@ -159,15 +183,15 @@
 		"max-volume": 100,
 		"scroll-step": 2
 	},
-    "custom/microphone": {
-        "exec": "~/.config/waybar/scripts/audioSourceStatus.sh",
-        "return-type": "json",
-        "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 2%+ --limit 1",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 2%- --limit 1",
-        "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
-        "on-click-right": "~/.config/hypr/scripts/micSwitcher.py",
-        "interval": 1
-    },
+	"custom/microphone": {
+		"exec": "~/.config/waybar/scripts/audioSourceStatus.sh",
+		"return-type": "json",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 2%+ --limit 1",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 2%- --limit 1",
+		"on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+		"on-click-right": "~/.config/hypr/scripts/micSwitcher.py",
+		"interval": 1
+	},
 	"tray": {
 		"icon-size": 20,
 		"spacing": 10
@@ -257,13 +281,25 @@
 		}
 	},
 	"backlight": {
-    "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": ["", ""]
+		"device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["", ""]
 	},
 	"disk": {
-    "interval": 30,
-    "format": " {percentage_free}%",
-    "path": "/"
+		"interval": 30,
+		"format": " {percentage_free}%",
+		"path": "/"
+	},
+	"custom/nvidia": {
+		"exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,nounits,noheader | sed 's/\\([0-9]\\+\\), \\([0-9]\\+\\)/ \\1%  \\2°C/g'",
+		"format": "GPU: {}",
+		"interval": 10,
+		"on-click": "kitty --class=\"kitty-waybar-tool\" watch -n 5 nvidia-smi"
+	},
+	"user": {
+		"format": "{user}",
+		"interval": 60,
+		"width": 30,
+		"icon": true
 	}
 }

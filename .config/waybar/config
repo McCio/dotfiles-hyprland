@@ -15,7 +15,6 @@
   ],
   "modules-right": [
     "hyprland/submap",
-    "custom/media",
     "systemd-failed-units",
     "cpu",
     "memory",
@@ -24,6 +23,7 @@
     "network",
     "bluetooth",
     "group/audio",
+    "custom/media",
     "battery",
     "custom/notification",
     "group/power"
@@ -68,8 +68,8 @@
     "icon": true,
     "icon-size": 24,
     "rewrite": {
-      "(.*) - Zen Browser": "$1",
-      "(.*) - Mozilla Firefox": "$1"
+      "(.*) — Zen Browser": "$1",
+      "(.*) — Mozilla Firefox": "$1"
     }
   },
   "idle_inhibitor": {

@@ -8,7 +8,7 @@
 
 window#waybar {
   background: red;
-  background-color: rgba(43, 48, 59, 0.2);
+  background-color: rgba(41, 41, 41, 0.1);
   color: white;
   transition-property: color;
   transition-duration: .5s;
@@ -49,7 +49,7 @@ window#waybar.solo {
 #workspaces button {
   padding: 0 0.7em;
   color: rgba(166, 176, 184, 0.764);
-  background-color: #171717;
+  background-color: rgba(17,17,17,1);
   min-width: 12px;
   border-radius: 0;
   transition: background-color .25s, color 0.25s, min-width 0.25s;
@@ -93,6 +93,7 @@ window#waybar.solo {
 #network,
 #pulseaudio,
 #wireplumber,
+#custom-microphone,
 #custom-weather,
 #tray,
 #mode,
@@ -119,9 +120,9 @@ window#waybar.solo {
 }
 
 /* make window module transparent when no windows present */
-window#waybar.empty
-    #window {
-    background-color: transparent;
+	window#waybar.empty
+	#window {
+	background-color: transparent;
 }
 
 #workspaces {
@@ -149,8 +150,8 @@ window#waybar.empty
 }
 
 #submap {
-  color: #f8f8f2;
-  background-color: #ea0000;
+	color: #f8f8f2;
+	background-color: #ea0000;
 	font-weight: bold;
 }
 
@@ -213,13 +214,15 @@ label:focus {
 }
 
 #wireplumber,
-#pulseaudio {
+#pulseaudio,
+#custom-microphone {
   color: #93eaf9;
   background-color: #282a36;
 }
 
 #wireplumber.muted,
-#pulseaudio.muted {
+#pulseaudio.muted,
+#custom-microphone.muted {
   color: #41696f;
   background-color: #282a36;
 }

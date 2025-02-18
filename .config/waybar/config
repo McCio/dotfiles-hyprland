@@ -69,7 +69,8 @@
     "icon-size": 24,
     "rewrite": {
       "(.*) — Zen Browser": "$1",
-      "(.*) — Mozilla Firefox": "$1"
+      "(.*) — Mozilla Firefox": "$1",
+      "(.*) - Mozilla Thunderbird": "$1"
     }
   },
   "idle_inhibitor": {

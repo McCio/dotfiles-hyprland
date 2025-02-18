@@ -107,6 +107,7 @@ window#waybar.solo {
 #sway-scratchpad,
 #bluetooth,
 #power-profiles-daemon,
+#systemd-failed-units,
 #mpd {
     padding: 0 7px;
     margin: 4px 2px;

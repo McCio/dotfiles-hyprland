@@ -15,6 +15,8 @@
   ],
   "modules-right": [
     "hyprland/submap",
+    "custom/media",
+    "systemd-failed-units",
     "cpu",
     "memory",
     "temperature",
@@ -23,7 +25,6 @@
     "bluetooth",
     "group/audio",
     "battery",
-    "custom/hyprsunset",
     "custom/notification",
     "group/power"
   ],
@@ -37,8 +38,9 @@
     "modules": [
       "custom/logout",
       "power-profiles-daemon",
-      "idle_inhibitor",
-      "backlight"
+      "backlight",
+      "custom/hyprsunset",
+      "idle_inhibitor"
     ]
   },
   "group/audio": {
@@ -67,7 +69,7 @@
     "icon-size": 24,
     "rewrite": {
       "(.*) - Zen Browser": "$1",
-      "(.*) - Mozilla Firefox": "$1",
+      "(.*) - Mozilla Firefox": "$1"
     }
   },
   "idle_inhibitor": {
@@ -79,6 +81,13 @@
     "tooltip": true,
     "tooltip-format-activated": "Theine mode activated",
     "tooltip-format-deactivated": "Theine mode deactivated"
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": true,
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "system": true,
+    "user": false
   },
   "cpu": {
     "interval": 3,
@@ -215,10 +224,9 @@
       "1": "",
       "2": "",
       "3": "",
-      "4": "",
+      "4": "",
       "5": "",
-      "6": "",
-      "7": "",
+      "6": "",
       "default": ""
     }
   },
@@ -288,5 +296,29 @@
     "format-icons": ["", ""],
     "reverse-scrolling": true,
     "reverse-muse-scrolling": true
+  },
+  "custom/media": {
+    "format": " {icon} ",
+    "tooltip-format": "{}",
+    "hide-empty-text": true,
+    "escape": true,
+    "return-type": "json",
+    "max-length": 20,
+    "format-icons": {
+      "paused": "",
+      "playing-spotify": "",
+      "playing-firefox": "",
+      "playing-chromium": "",
+      "playing-kdeconnect": "",
+      "default": ""
+    },
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctld shift",
+    "smooth-scrolling-threshold": 10,
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "exec": "~/.config/waybar/scripts/mediaplayer.py 2> /dev/null",
+    "restart-interval": 1,
+    "exec-on-event": false
   }
 }

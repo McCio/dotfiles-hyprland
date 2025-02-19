@@ -282,8 +282,9 @@
 	},
 	"backlight": {
 		"device": "intel_backlight",
-		"format": "{percent}% {icon}",
-		"format-icons": ["", ""]
+		"format": "{icon} {percent}%",
+		"scroll-step": 5,
+		"format-icons": ["", "", ""]
 	},
 	"disk": {
 		"interval": 30,

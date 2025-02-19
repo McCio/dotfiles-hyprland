@@ -73,13 +73,16 @@ class PlayerManager:
         logger.debug(f"Writing output: {text}")
 
         if player.props.status == "Playing":
-            class_name = f"playing-{player.props.player_name}"
+            class_name = [f"playing-{player.props.player_name}"]
+            class_name += ["playing"]
         else:
-            class_name = "paused"
+            class_name = [f"paused-{player.props.player_name}"]
+            class_name += ["paused"]
+        class_name += ["mediaplayer"]
 
         output = {"text": text, "tooltip": text,
-                  "class": ["mediaplayer", class_name],
-                  "alt": class_name,
+                  "class": class_name,
+                  "alt": class_name[0],
                   }
 
         sys.stdout.write(json.dumps(output) + "\n")

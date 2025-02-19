@@ -234,11 +234,13 @@ label:focus {
     color: #f8f8f2;
 }
 
-#custom-media.playing-spotify {
+#custom-media.playing-spotify,
+#custom-media.paused-spotify {
     background-color: #1ed760;
 }
 
-#custom-media.playing-vlc {
+#custom-media.playing-vlc,
+#custom-media.paused-vlc {
     background-color: #ffa000;
 }
 

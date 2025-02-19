@@ -16,9 +16,8 @@
   "modules-right": [
     "hyprland/submap",
     "systemd-failed-units",
-    "cpu",
-    "memory",
     "temperature",
+    "group/monitor",
     "disk",
     "network",
     "bluetooth",
@@ -26,8 +25,22 @@
     "custom/media",
     "battery",
     "custom/notification",
+    "user",
     "group/power"
   ],
+  "group/monitor": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "cpu",
+      "memory",
+      "custom/nvidia"
+    ]
+  },
   "group/power": {
     "orientation": "horizontal",
     "drawer": {
@@ -110,11 +123,15 @@
     "on-click": "baobab"
   },
   "temperature": {
-    "critical-threshold": 60,
-    "format": " {temperatureC}°",
+    "critical-threshold": 57,
+    "format": "", // hide if it's not critical
+    "format-critical": " {temperatureC}°",
     "hwmon-path": [
-      "/sys/class/hwmon/hwmon2/temp1_input",
-      "/sys/class/thermal/thermal_zone0/temp"
+      "/sys/class/hwmon/hwmon2/temp1_input", // nvme
+      "/sys/class/thermal/thermal_zone0/temp", // acpi
+      "/sys/class/thermal/thermal_zone10/temp", // in-cpu
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input", // composite skylake
+      "/sys/devices/pci0000:00/0000:00:1c.0/0000:02:00.0/hwmon/hwmon6/temp1_input" // pci adapter
     ]
   },
   "battery": {
@@ -294,7 +311,7 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "{percent}% {icon}",
-    "format-icons": ["", ""],
+    "format-icons": ["", "", ""],
     "reverse-scrolling": true,
     "reverse-muse-scrolling": true
   },
@@ -321,5 +338,16 @@
     "exec": "~/.config/waybar/scripts/mediaplayer.py 2> /dev/null",
     "restart-interval": 1,
     "exec-on-event": false
+  },
+  "custom/nvidia": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu,memory.used --format=csv,noheader | awk -F, '{gsub(/ /,\"\");print \" \"$1\" \"$2\"°  \"$3;}'",
+    "format": "{}",
+    "interval": 5,
+    "on-click": "kitty --class=\"kitty-waybar-tool\" watch -n 5 nvidia-smi"
+  },
+  "user": {
+    "format": "",
+    "interval": 600,
+    "icon": true
   }
 }

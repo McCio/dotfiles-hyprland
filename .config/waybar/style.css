@@ -105,6 +105,8 @@ window#waybar.solo {
 #custom-notification,
 #custom-logout,
 #custom-logo,
+#custom-nvidia,
+#user,
 #sway-scratchpad,
 #bluetooth,
 #power-profiles-daemon,
@@ -188,6 +190,11 @@ label:focus {
     color: #282a36;
 }
 
+#user {
+    background-color: #ffa125;
+    color: #282a36;
+}
+
 #memory {
     background-color: #f1fa8c;
     color: #282a36;
@@ -227,12 +234,17 @@ label:focus {
     color: #f8f8f2;
 }
 
-#custom-media.custom-spotify {
+#custom-media.playing-spotify {
     background-color: #66cc99;
 }
 
-#custom-media.custom-vlc {
+#custom-media.playing-vlc {
     background-color: #ffa000;
+}
+
+#custom-nvidia {
+    background-color: #65d800;
+    color: #282a36;
 }
 
 #temperature {

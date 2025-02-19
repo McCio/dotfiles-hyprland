@@ -105,6 +105,8 @@ window#waybar.solo {
 #custom-logout,
 #custom-logo,
 #custom-hyprsunset,
+#custom-nvidia,
+#user,
 #sway-scratchpad,
 #bluetooth,
 #power-profiles-daemon,
@@ -190,12 +192,14 @@ label:focus {
 
 #cpu {
     color: #b6fa8c;
-    background-color: #282a36;
+}
+
+#user {
+    color: #ffa125;
 }
 
 #memory {
     color: #f1fa8c;
-    background-color: #282a36;
 }
 
 #backlight {
@@ -204,7 +208,6 @@ label:focus {
 
 #network {
     color: #adfa50;
-    background-color: #282a36;
     padding-right: 14px;
 }
 
@@ -214,39 +217,38 @@ label:focus {
 
 #network.disconnected {
     color: #fa5050;
-    background-color: #282a36;
 }
 
 #wireplumber,
 #pulseaudio,
 #custom-microphone {
     color: #93eaf9;
-    background-color: #282a36;
 }
 
 #wireplumber.muted,
 #pulseaudio.muted,
 #custom-microphone.muted {
     color: #41696f;
-    background-color: #282a36;
 }
 
-#custom-media.custom-spotify {
+#custom-nvidia {
+    color: #65d800;
+}
+
+#custom-media.playing-spotify {
     color: #66cc99;
 }
 
-#custom-media.custom-vlc {
+#custom-media.playing-vlc {
     color: #ffa000;
 }
 
 #temperature {
     color: #ff79c6;
-    background-color: #282a36;
 }
 
 #temperature.critical {
     color: #ff5555;
-    background-color: #282a36;
 }
 
 #tray {

@@ -37,8 +37,8 @@
     },
     "modules": [
       "cpu",
-      "memory",
-      "custom/nvidia"
+      "custom/nvidia",
+      "memory"
     ]
   },
   "group/power": {
@@ -110,13 +110,13 @@
   },
   "memory": {
     "interval": 9,
-    "format": " {used:4.1f}GiB",
+    "format": "{used:4.1f}GiB",
     "tooltip": true,
     "tooltip-format": "RAM: {used} / {total} GiB ({percentage}%)\nSwap: {swapUsed} / {swapTotal} GiB ({swapPercentage}%)"
   },
   "disk": {
     "interval": 60,
-    "format": " {specific_free:4.1f}GiB",
+    "format": "{specific_free:4.1f}GiB",
     "unit": "GiB",
     "tooltip": true,
     "tooltip-format": "Disk: {used} / {total} ({percentage_used}%)",

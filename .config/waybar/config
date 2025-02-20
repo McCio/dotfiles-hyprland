@@ -82,6 +82,7 @@
     "icon-size": 24,
     "rewrite": {
       "(.*) — Zen Browser": "$1",
+      "(.*) - Chromium": "$1",
       "(.*) — Mozilla Firefox": "$1",
       "(.*) - Mozilla Thunderbird": "$1"
     }

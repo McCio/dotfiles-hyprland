@@ -1,4 +1,13 @@
 #!/bin/bash
 
-# Pass all arguments to the original set-background Python script
-python3 ~/.local/bin/set-background.py "$@"
+if ! command -v gowall &> /dev/null
+then
+  # If gowall is not installed, use the original set-background script
+  echo "gowall is not installed, using the original set-background script..."
+  echo "(You can install gowall from aur with 'yay -S gowall')"
+  set-background "$@"
+else
+  # Pass all arguments to the original set-background Python script
+  python3 ~/.local/bin/set-background.py "$@"
+fi
+

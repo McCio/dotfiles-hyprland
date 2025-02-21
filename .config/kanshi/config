@@ -1,0 +1,13 @@
+include ~/.config/kanshi/names
+
+output eDP-1 {
+    enable
+    mode 1920x1080@59.934Hz
+    position 0,0
+}
+
+profile home {
+    output $retro enable mode 2560x1440@59.951Hz position 0,0
+    output eDP-1 position 320,1440
+}
+

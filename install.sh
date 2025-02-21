@@ -1,6 +1,6 @@
 read -p "Do you want to install the packages? (y/n): " choice
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-  yay -S hyprland hyprpaper hyprlock hypridle waybar swaync kitty xdg-desktop-portal-hyprland wlogout hyprshot battop wob syshud hyprsunset rofi-wayland python-pywal cliphist
+  yay -S hyprland hyprpaper hyprlock hypridle waybar swaync kitty xdg-desktop-portal-hyprland wlogout hyprshot battop syshud hyprsunset rofi-wayland python-pywal cliphist kanshi
   yay -S --asdeps ddcutil
   hyprpm add https://github.com/hyprwm/hyprland-plugins
   hyprpm enable hyprexpo
@@ -11,20 +11,20 @@ else
 fi
 
 # Define a list of strings
-folders=("hypr" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "wob")
+folders=("hypr" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "kanshi")
 
 # Define a list of files
 files=(".zshrc")
 
 # Loop through each string in the list
 for folder in "${folders[@]}"; do
-  cp -r ./.config/$folder ./test 
+  cp -r ./.config/$folder ./test
   # Add your processing logic here
 done
 
 
 # Loop through each string in the list
 for file in "${files[@]}"; do
-  cp ./.config/$file ./test/ 
+  cp ./.config/$file ./test/
   # Add your processing logic here
 done

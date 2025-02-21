@@ -102,7 +102,8 @@
     "format": "✗ {nr_failed}",
     "format-ok": "✓",
     "system": true,
-    "user": false
+    "user": false,
+    "on-click": "kitty --class=\"kitty-waybar-tool\" --hold systemctl list-units --state=failed"
   },
   "cpu": {
     "interval": 3,

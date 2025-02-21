@@ -8,9 +8,9 @@ if [ "$1" == "--get" ] || [ "$1" == "-g" ]
 then
     if pgrep -x "hyprsunset" > /dev/null
     then
-        echo "{\"text\":\"\",\"tooltip\":\"Turn hypersunset off\",\"class\":\"on\",\"alt\":\"on\"}"
+        echo "{\"text\":\"\",\"tooltip\":\"Click to turn hypersunset off\",\"class\":\"on\",\"alt\":\"on\"}"
     else
-        echo "{\"text\":\"\",\"tooltip\":\"Turn hypersunset on\",\"class\":\"off\",\"alt\":\"off\"}"
+        echo "{\"text\":\"\",\"tooltip\":\"Click to turn hypersunset on\",\"class\":\"off\",\"alt\":\"off\"}"
     fi
     exit 0
 fi

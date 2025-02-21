@@ -11,9 +11,9 @@ fi
 if [[ $1 == "status" ]]; then
   status=$(playerctl status)
   if [[ $status == "Paused" ]]; then
-    echo ""
-  else
     echo ""
+  else
+    echo ""
   fi
   exit
 fi

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+WALL_PATH=~/.config/hypr/wallpaper/wallpaper
+COLOR_SCHEME_PATH="${HOME}/.cache/wal/colors.sh"
+
+if [ -z "$1" ]; then
+  echo "No image file provided."
+  exit 1
+fi
+
+if ! file "$1" | grep -qE 'image|bitmap'; then
+  echo "The provided file is not an image."
+  exit 1
+fi
+
+echo "Running wal to extract colors"
+wal -e -i $1
+# openrgb -c $(wal-accent)
+
+echo setting background to "$1"
+# copying to deafult path makes it "persistent"
+cp "$1" $WALL_PATH
+
+hyprctl hyprpaper preload "$1"
+hyprctl hyprpaper wallpaper ",$1"
+
+echo "Changing Hyprland Colors."
+{
+    awk '{gsub(/#/,""); print "$color"NR-1" = rgb("$1")" }' ~/.cache/wal/colors
+} > ~/.cache/wal/colors-hyprland.conf
+
+hyprctl hyprpaper unload "$WALL_PATH"
+hyprctl hyprpaper preload "$WALL_PATH"
+hyprctl hyprpaper wallpaper ",$WALL_PATH"
+
+#killall hyprpaper
+#nohup hyprpaper &>/dev/null &

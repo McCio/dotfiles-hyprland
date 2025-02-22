@@ -1,6 +1,6 @@
 read -p "Do you want to install the packages? (y/n): " choice
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-  yay -S hyprland hyprpaper hyprlock hypridle waybar swaync kitty xdg-desktop-portal-hyprland wlogout hyprshot battop syshud hyprsunset rofi-wayland python-pywal cliphist kanshi
+  yay -S hyprland hyprpaper hyprlock hypridle waybar swaync kitty xdg-desktop-portal-hyprland wlogout hyprshot battop syshud hyprsunset rofi-wayland python-pywal cliphist kanshi gowall
   yay -S --asdeps ddcutil
   hyprpm add https://github.com/hyprwm/hyprland-plugins
   hyprpm enable hyprexpo

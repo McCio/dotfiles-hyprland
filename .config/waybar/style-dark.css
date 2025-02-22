@@ -8,7 +8,7 @@
 
 window#waybar {
     background: red;
-    background-color: rgba(43, 48, 59, 0.2);
+    background-color: rgba(41, 41, 41, 0.1);
     color: white;
     transition-property: color;
     transition-duration: 0.5s;
@@ -20,7 +20,7 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background: #26a65b;
+    background: #26A65B;
     background-color: rgb(43, 48, 59);
     border: 1px solid rgba(100, 114, 125, 0.5);
 }
@@ -31,10 +31,10 @@ tooltip label {
 
 /*
 window#waybar.empty {
-  color: transparent;
+    color: transparent;
 }
 window#waybar.solo {
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
 */
 
@@ -47,15 +47,13 @@ window#waybar.solo {
 }
 
 #workspaces button {
-    padding: 0 0.7em;
+    padding: 0 0.4em;
     color: rgba(166, 176, 184, 0.764);
-    background-color: #171717;
+    background-color: rgba(17, 17, 17, 1);
     min-width: 12px;
     border-radius: 0;
-    transition:
-        background-color 0.25s,
-        color 0.25s,
-        min-width 0.25s;
+    border: 2px solid transparent;
+    transition: background-color .25s, color 0.25s, min-width 0.25s;
 }
 
 #workspaces button:hover {
@@ -64,26 +62,42 @@ window#waybar.solo {
 }
 
 #workspaces button.focused {
-    color: #64727d;
+    color: #64727D;
+}
+
+@keyframes blink-workspace {
+    to {
+        background-color: #ff1d1d;
+        color: #ffffff;
+        border-radius: 8px;
+    }
 }
 
 #workspaces button.urgent {
-    color: #eb4d4b;
+    border-radius: 8px;
+    animation-name: blink-workspace;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #workspaces button.active {
     color: rgb(250, 189, 47);
-    background-color: #282a36;
+    background-color: #282A36;
+    border-radius: 8px;
+    /* border: 2px solid; */
     min-width: 30px;
 }
 
 #mode {
-    color: #64727d;
+    color: #64727D;
     border-bottom: 3px solid #ffffff;
 }
 
 #window,
 #submap,
+#user,
 #workspaces,
 #clock,
 #battery,
@@ -106,18 +120,27 @@ window#waybar.solo {
 #custom-logo,
 #custom-hyprsunset,
 #custom-nvidia,
-#user,
 #sway-scratchpad,
 #bluetooth,
 #power-profiles-daemon,
 #systemd-failed-units,
 #mpd {
-    padding: 0 7px;
+    padding: 0 8px;
     margin: 4px 2px;
     color: #f8f8f2;
     background-color: #282a36;
     border-radius: 7px;
 }
+
+/* .module {
+    box-shadow: inset 0 -0px;
+    border: 2px solid transparent;
+    transition: border 0.25s;
+}
+.module:hover {
+    box-shadow: inset 0 -0px;
+    border: 2px solid;
+} */
 
 #window {
     color: #ff7e15;
@@ -131,7 +154,7 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-    padding: 0 0 0 8px;
+    padding: 0 0 0 0px;
     background-color: rgba(0, 0, 0, 0);
 }
 
@@ -162,7 +185,7 @@ window#waybar.empty #window {
 
 #battery.charging,
 #battery.plugged {
-    color: #26a65b;
+    color: #26A65B;
 }
 
 @keyframes blink {
@@ -268,7 +291,7 @@ label:focus {
 }
 
 #tray menuitem {
-    padding: 4px;
+    padding: 4px; 
 }
 
 #tray menuitem:hover {
@@ -342,16 +365,14 @@ label:focus {
 
 #disk {
     color: #ffb86c;
-    background-color: #282a36;
 }
 
 #sway-scratchpad {
     color: #50fa7b;
-    background-color: #282a36;
 }
 
 #custom-notification {
-    font-family: "NotoSansMono Nerd Font";
+    font-family: "MesloLGS Nerd Font Mono", monospace;
     color: rgb(214, 214, 214);
 }
 

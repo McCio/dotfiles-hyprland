@@ -1,3 +1,7 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"
+
 read -p "Do you want to install the packages? (y/n): " choice
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
   yay -S hyprland hyprpaper hyprlock hypridle waybar swaync kitty xdg-desktop-portal-hyprland wlogout hyprshot battop syshud hyprsunset rofi-wayland python-pywal cliphist kanshi gowall
@@ -6,25 +10,21 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
   hyprpm enable hyprexpo
   hyprpm reload
 else
-  echo "Installation aborted."
-  exit 1
+  echo "Packages installation skipped."
 fi
 
-# Define a list of strings
+# Define the list of folders
 folders=("hypr" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "kanshi")
 
-# Define a list of files
-files=(".zshrc")
-
-# Loop through each string in the list
 for folder in "${folders[@]}"; do
-  cp -r ./.config/$folder ./test
-  # Add your processing logic here
+  cp -r ./.config/$folder ~/.config
 done
 
+cp -r ./.bin/* ~/.bin
 
-# Loop through each string in the list
+# Define the list of files
+files=(".zshrc")
+
 for file in "${files[@]}"; do
-  cp ./.config/$file ./test/
-  # Add your processing logic here
+  cp ./.config/$file ~/
 done

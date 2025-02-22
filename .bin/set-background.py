@@ -14,8 +14,7 @@ ALLOWED_THEMES = [
 
 def main():
     parser = argparse.ArgumentParser(description='Set background script')
-    parser.add_argument('-i', '--input', type=str,
-                        required=True, help='input image file')
+    parser.add_argument('input', type=str, help='input image file')
     parser.add_argument('-t', '--theme', type=str,
                         help='theme name\nvalid themes are: ' + ", ".join(ALLOWED_THEMES))
     parser.add_argument('-o', '--output', type=str,
@@ -36,12 +35,11 @@ def main():
             print("\nPlease choose one of the following themes:\n",
                   ", ".join(ALLOWED_THEMES))
             return
-    if args.output:
-        print(f"output: {args.output}")
     if args.pixelate:
-        if args.pixelate < 1 or args.pixelate > 25:
-            print("Error: Pixelate value must be between 1 and 25.")
+        if args.pixelate < 1 or args.pixelate > 25 or int(args.pixelate) != args.pixelate:
+            print("Error: Pixelate value must be an int between 1 and 25.")
             return
+        args.pixelate = int(args.pixelate)
         print(f"Pixelate: {args.pixelate}")
 
     if not os.path.isfile(args.input):
@@ -60,28 +58,31 @@ def main():
         return
 
     if args.negative:
-        cmd = f'gowall invert {output_path}'
+        cmd = f'gowall invert "{output_path}"'
         print("Negative:", cmd)
         os.system(cmd)
 
     if args.pixelate:
-        cmd = f'gowall pixelate {output_path} -s {args.pixelate}'
+        cmd = f'gowall pixelate "{output_path}" -s {args.pixelate}'
         print("Pixelating:", cmd)
         os.system(cmd)
 
     if args.theme:
-        cmd = f'gowall convert {output_path} -t {args.theme}'
+        cmd = f'gowall convert "{output_path}" -t {args.theme}'
         print("Theming:", cmd)
         os.system(cmd)
 
     if args.output:
+        dir = os.path.dirname(os.path.expanduser(args.output))
         cmd = f'cp {output_path} {args.output}'
-        print("Saving to ", args.output)
+        print("Saving a copy to:", args.output)
+        if not os.path.isdir(dir):
+            os.makedirs(dir, exist_ok=True)
+        os.system(cmd)
 
-    if (args.set):
-        # save the final image
+    if args.set:
         cmd = f'set-background {output_path}'
-        print("Saving:", cmd)
+        print("Setting background:", cmd)
         os.system(cmd)
     else:
         print("You can set the image as background by adding the -s flag")

@@ -7,7 +7,10 @@ if [ ! -f "$COLOR_SCHEME" ]; then
   exit 1
 fi
 
-COLOR=$(cat $COLOR_SCHEME | pastel color | pastel sort-by chroma -r | pastel format hex | head -1)
+# COLOR=$(cat $COLOR_SCHEME | pastel color | pastel sort-by chroma -r | pastel format hex | head -1)
+#COLOR=$(cat $COLOR_SCHEME | pastel color | pastel format hex | head -1)
+COLOR=$(sed -n '2p' "$COLOR_SCHEME")
+
 
 color=${COLOR#"#"} # remove the leading '#'
 echo $color

@@ -20,7 +20,24 @@ nohup hyprpaper &>/dev/null &
 
 echo "Running wal to extract colors"
 wal -i $1
-# openrgb -c $(wal-accent)
+if command -v pastel &> /dev/null; then
+  echo "Color scheme:"
+  cat $HOME/.cache/wal/colors | pastel color | pastel format hex
+else
+  echo "pastel is not installed, skipping."
+fi
+
+echo "Changing OpenRGB Colors to match the wallpaper."
+if command -v pastel &> /dev/null; then
+  wal-accent | pastel color
+else
+  echo $(wal-accent)
+fi
+if command -v openrgb &> /dev/null; then
+  openrgb -c $(wal-accent)
+else
+  echo "openrgb is not installed, skipping."
+fi
 
 echo "Changing Hyprland Colors."
 colors=$(cat $HOME/.cache/wal/colors)

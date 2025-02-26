@@ -85,7 +85,6 @@ window#waybar.solo {
 #workspaces button.active {
 	color: rgb(250, 189, 47);
 	background-color: #282a36;
-	border-radius: 0px;
 	/* border: 2px solid; */
 	min-width: 30px;
 }

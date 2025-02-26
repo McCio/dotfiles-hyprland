@@ -53,8 +53,8 @@
     "position": "left",
     "padding": {
       "top": 1,
-      "right": 0,
-      "left": 0
+      "right": 4,
+      "left": 4
     }
   }
 }

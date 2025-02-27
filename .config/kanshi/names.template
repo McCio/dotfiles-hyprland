@@ -1,2 +1,1 @@
-output "Dell Inc. DELL U2515H 9X2VY6A30DWL" alias $retro
-
+output "my_awesome_external_monitor" alias $retro

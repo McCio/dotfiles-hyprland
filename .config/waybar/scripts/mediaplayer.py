@@ -76,8 +76,8 @@ class PlayerManager:
             class_name = [f"playing-{player.props.player_name}"]
             class_name += ["playing"]
         else:
-            class_name = [f"paused-{player.props.player_name}"]
-            class_name += ["paused"]
+            class_name = ["paused"]
+            class_name += [f"paused-{player.props.player_name}"]
         class_name += ["mediaplayer"]
 
         output = {"text": text, "tooltip": text,

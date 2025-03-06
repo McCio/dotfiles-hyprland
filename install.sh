@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 
 read -p "Do you want to install the packages? (y/n): " choice
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-  yay -S hyprland hyprpaper hyprlock hypridle waybar swaync kitty xdg-desktop-portal-hyprland wlogout hyprshot battop syshud hyprsunset rofi-wayland python-pywal cliphist kanshi gowall
+  yay -S hyprland hyprpaper hyprlock hypridle waybar swaync ghostty kitty xdg-desktop-portal-hyprland wlogout hyprshot battop syshud hyprsunset rofi-wayland python-pywal cliphist kanshi gowall
   yay -S --asdeps ddcutil
   hyprpm add https://github.com/hyprwm/hyprland-plugins
   hyprpm enable hyprexpo
@@ -14,7 +14,7 @@ else
 fi
 
 # Define the list of folders
-folders=("hypr" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "kanshi")
+folders=("hypr" "ghostty" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "kanshi")
 
 for folder in "${folders[@]}"; do
   cp -r ./.config/$folder ~/.config

@@ -1,0 +1,13 @@
+# Since Ghostty ships with sensible defaults for all options,
+# users should only need to set options that they want to change
+# from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+background-blur = true
+background-opacity = 0.7
+font-size = 10

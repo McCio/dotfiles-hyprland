@@ -103,12 +103,12 @@
     "format-ok": "✓",
     "system": true,
     "user": false,
-    "on-click": "kitty --class=\"kitty-waybar-tool\" --hold systemctl list-units --state=failed"
+    "on-click": "ghostty --class=\"waybar.popup.term\" --wait-after-command -e systemctl list-units --state=failed"
   },
   "cpu": {
     "interval": 3,
     "format": " {usage:2}%",
-    "on-click": "kitty --class=\"kitty-waybar-tool\" htop"
+    "on-click": "ghostty --class=\"waybar.popup.term\" -e htop"
   },
   "memory": {
     "interval": 9,
@@ -149,7 +149,7 @@
     "format-charging": "󰂄",
     "format-plugged":  "󰂄",
     "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
-    "on-click": "kitty --class=\"kitty-waybar-tool\" battop"
+    "on-click": "ghostty --class=\"waybar.popup.term\" -e battop"
   },
   "network": {
     "interval": 2,
@@ -163,7 +163,7 @@
     "tooltip-format-wifi": "  {bandwidthUpBytes}  {bandwidthDownBytes}\n{ipaddr}\n{frequency}GHz @ {signalStrength}%",
     "tooltip-format-ethernet": "  {bandwidthUpBytes}  {bandwidthDownBytes}\n{ipaddr}/{cidr}\n{ifname} @ {gwaddr}",
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "kitty --class=\"kitty-waybar-tool\" nmtui"
+    "on-click": "ghostty --class=\"waybar.popup.term\" -e nmtui"
   },
   "bluetooth": {
     "format": "{icon}",
@@ -178,7 +178,7 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-    "on-click": "kitty --class=\"kitty-waybar-tool\" bluetuith",
+    "on-click": "ghostty --class=\"waybar.popup.term\" -e bluetuith",
     "max-length": 20
   },
   "clock": {
@@ -345,7 +345,7 @@
     "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu,memory.used --format=csv,noheader | awk -F, '{gsub(/ /,\"\");print \" \"$1\" \"$2\"°  \"$3;}'",
     "format": "{}",
     "interval": 5,
-    "on-click": "kitty --class=\"kitty-waybar-tool\" watch -n 5 nvidia-smi"
+    "on-click": "ghostty --class=\"waybar.popup.term\" -e watch -n 5 nvidia-smi"
   },
   "user": {
     "format": "",

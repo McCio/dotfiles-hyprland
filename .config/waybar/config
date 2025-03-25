@@ -18,7 +18,6 @@
     "systemd-failed-units",
     "temperature",
     "group/monitor",
-    "disk",
     "network",
     "bluetooth",
     "group/audio",
@@ -37,6 +36,7 @@
     },
     "modules": [
       "cpu",
+      "disk",
       "custom/nvidia",
       "memory"
     ]
@@ -118,7 +118,7 @@
   },
   "disk": {
     "interval": 60,
-    "format": "{specific_free:4.1f}GiB",
+    "format": "{specific_free:5.1f}GiB",
     "unit": "GiB",
     "tooltip": true,
     "tooltip-format": "Disk: {used} / {total} ({percentage_used}%)",

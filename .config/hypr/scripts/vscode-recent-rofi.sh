@@ -1,5 +1,6 @@
-recent=$(jq -r '.profileAssociations.workspaces | keys | .[]' ~/.config/Code/User/globalStorage/storage.json | tr ' ' '\n')
-recent=$(echo "$recent" | sed 's|^file://||')
+recent=$(jq -r '.profileAssociations.workspaces' ~/.config/Code/User/globalStorage/storage.json | tr ' ' '\n')
+recent=$(echo "$recent" | grep -o '"file://.*"' | sed 's|^"file://||; s|"$||')
+recent=$(echo "$recent" | tac)
 
 selected=$(echo "$recent" | rofi -theme ~/.config/rofi/launchers/type-1/style-8 -lines 7 -dmenu -i -p 'a' \
 		-columns 1)

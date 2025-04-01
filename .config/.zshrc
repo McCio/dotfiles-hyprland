@@ -116,7 +116,7 @@ export ARCHFLAGS="-arch x86_64"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-export BROWSER=/usr/bin/firefox
+export BROWSER=/usr/bin/zen
 export EDITOR=/usr/bin/vim
 
 alias cat="bat"

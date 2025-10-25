@@ -89,6 +89,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+command -v fzf > /dev/null && source <(fzf --zsh)
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -116,7 +118,7 @@ export ARCHFLAGS="-arch x86_64"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-export BROWSER=/usr/bin/zen
+export BROWSER=/usr/bin/zen-browser
 export EDITOR=/usr/bin/vim
 
 alias cat="bat"

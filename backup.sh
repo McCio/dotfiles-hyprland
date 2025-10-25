@@ -5,11 +5,7 @@ if [ ! -d ".config" ]; then
   mkdir .config
 fi
 
-# Define a list of strings
-folders=("hypr" "ghostty" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "kanshi")
-
-# Define a list of files
-files=("$HOME/.zshrc")
+. lists.sh
 
 # Loop through each string in the list
 for folder in "${folders[@]}"; do

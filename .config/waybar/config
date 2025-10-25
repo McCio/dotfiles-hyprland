@@ -196,14 +196,14 @@
     "on-click-middle": "thunderbird --calendar && hyprctl dispatch workspace 5"
   },
   "privacy": {
-      "icon-spacing": 4,
-      "icon-size": 18,
-      "transition-duration": 250,
-      "modules": [
-        { "type": "screenshare" },
-        { "type": "audio-in" }
-      ]
-    },
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      { "type": "screenshare" },
+      { "type": "audio-in" }
+    ]
+  },
   "wireplumber": {
     "format": "{icon}",
     "format-icons": {
@@ -235,11 +235,12 @@
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1",
     "active-only": false,
+    "all-outputs": false,
     "show-special": true,
-    "special-visible-only": true,
-    "persistent-workspaces": {
-      "*": 5
-    },
+    "special-visible-only": false,
+    //"persistent-workspaces": {
+    //  "*": 5
+    //},
     "format-icons": {
       "1": "",
       "2": "",
@@ -247,6 +248,7 @@
       "4": "",
       "5": "",
       "6": "",
+      "magic": "✨",
       "default": ""
     }
   },

@@ -3,7 +3,7 @@ FOLDERS = hypr ghostty kitty rofi swaync sys64 waybar wlogout kanshi
 FILES = .zshrc .zsh_aliases
 
 # Packages and plugins
-PACKAGES = hyprland hyprpaper hyprlock hypridle waybar swaync ghostty kitty xdg-desktop-portal-hyprland wlogout hyprshot battop syshud hyprsunset rofi-wayland python-pywal cliphist gowall bongocat noto-fonts noto-fonts-emoji
+PACKAGES = hyprland hyprpaper hyprlock hypridle waybar swaync ghostty kitty xdg-desktop-portal-hyprland wlogout hyprshot battop-bin syshud hyprsunset python-pywal16 cliphist gowall bongocat noto-fonts noto-fonts-emoji
 ASDEPS = ddcutil
 HYPRPM_PLUGINS = https://github.com/hyprwm/hyprland-plugins
 HYPRPM_ENABLE = hyprexpo
@@ -29,7 +29,32 @@ for file in $(FILES); do \
 done
 endef
 
-.PHONY: backup check install packages
+.PHONY: help backup check install packages
+
+help:
+	@echo -e "Available targets:"
+	@echo -e "  help      Show this help message"
+	@echo -e "  backup    Backup configs and scripts from home to this repo"
+	@echo -e "  check     Show differences between home and backup (folders, files, and packages)"
+	@echo -e "  packages  Install all packages and Hyprpm plugins"
+	@echo -e "  install   Prompt for packages install, then restore configs and scripts to home"
+
+check:
+	@echo -e "$(INFO)Checking differences in folders between home and backup..."
+	@$(call loop_folders,diff -r $$HOME/.config/$$folder ./.config/$$folder --color=always | less -F)
+	@echo -e "$(INFO)Checking differences in files between home and backup..."
+	@$(call loop_files,diff $$HOME/$$file ./.config/$$file --color=always | less -F)
+	@echo -e "$(INFO)Checking differences in packages between home and backup..."
+	@for package in $(PACKAGES); do \
+		if ! pacman -Qq $$package 2>/dev/null | grep -qx $$package; then \
+			echo -e "$(ERROR)Package $$package is not installed."; \
+		fi \
+	done
+	@for package in $(ASDEPS); do \
+		if ! pacman -Qq $$package 2>/dev/null | grep -qx $$package; then \
+			echo -e "$(ERROR)Package $$package is not installed."; \
+		fi \
+	done
 
 backup:
 	@echo -e "$(INFO)Backing up configs and scripts..."
@@ -40,13 +65,8 @@ backup:
 	@$(call loop_files,cp $$HOME/$$file ./.config/ || true)
 	@echo -e "$(OK)Backup complete."
 
-check:
-	@echo -e "$(INFO)Checking differences between home and backup..."
-	@$(call loop_folders,diff -r $$HOME/.config/$$folder ./.config/$$folder --color=always | less -F)
-	@$(call loop_files,diff $$HOME/$$file ./.config/$$file --color=always | less -F)
-
 packages:
-	@echo -e "$(WARN)Installing packages and Hyprpm plugins..."
+	@echo -e "$(INFO)Installing packages and Hyprpm plugins..."
 	yay -S $(PACKAGES)
 	yay -S --asdeps $(ASDEPS)
 	@for plugin in $(HYPRPM_PLUGINS); do hyprpm add $$plugin; done
@@ -55,7 +75,7 @@ packages:
 	@echo -e "$(OK)Packages and plugins installation complete."
 
 install:
-	@read -p "$$(echo -e '$(WARN)Do you want to install the packages? (y/N): ')" choice; \
+	@read -p "$$(echo -e '$(INFO)Do you want to install the packages? (y/N): ')" choice; \
 	if [[ $$choice == "y" || $$choice == "Y" ]]; then \
 		$(MAKE) packages; \
 	else \

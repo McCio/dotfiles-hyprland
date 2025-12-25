@@ -1,11 +1,11 @@
-#!/bin/zsh
+#!/bin/bash
 
-# Create the .config directory if it doesn't exist
-if [ ! -d ".config" ]; then
-  mkdir .config
-fi
+cd "$(dirname "$0")"
 
 . lists.sh
+
+mkdir -p .config
+mkdir -p .bin
 
 # Loop through each string in the list
 for folder in "${folders[@]}"; do

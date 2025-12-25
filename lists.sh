@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Define a list of folders
 folders=("hypr" "ghostty" "kitty" "rofi" "swaync" "sys64" "waybar" "wlogout" "kanshi")

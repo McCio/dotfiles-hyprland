@@ -85,6 +85,7 @@ plugins=(
   archlinux
   zsh-autosuggestions
   dirhistory
+  tailscale
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -1,5 +1,5 @@
 # Folder and file lists
-FOLDERS = hypr ghostty kitty rofi swaync sys64 waybar wlogout kanshi
+FOLDERS = hypr ghostty kitty rofi swaync sys64 waybar wlogout kanshi bongocat
 FILES = .zshrc .zsh_aliases
 
 # Packages and plugins
@@ -9,6 +9,7 @@ HYPRPM_PLUGINS = https://github.com/hyprwm/hyprland-plugins
 HYPRPM_ENABLE = hyprexpo
 
 SHELL := /bin/bash
+HOME ?= $(shell echo $$HOME)
 
 # Colored log prefixes
 INFO  = \033[1;34m[INFO]  \033[0m
@@ -41,9 +42,9 @@ help:
 
 check:
 	@echo -e "$(INFO)Checking differences in folders between home and backup..."
-	@$(call loop_folders,diff -r $$HOME/.config/$$folder ./.config/$$folder --color=always | less -F)
+	@$(call loop_folders,diff -r $(HOME)/.config/$$folder ./.config/$$folder --color=always | less -F)
 	@echo -e "$(INFO)Checking differences in files between home and backup..."
-	@$(call loop_files,diff $$HOME/$$file ./.config/$$file --color=always | less -F)
+	@$(call loop_files,diff $(HOME)/$$file ./.config/$$file --color=always | less -F)
 	@echo -e "$(INFO)Checking differences in packages between home and backup..."
 	@for package in $(PACKAGES); do \
 		if ! pacman -Qq $$package 2>/dev/null | grep -qx $$package; then \
@@ -60,9 +61,9 @@ backup:
 	@echo -e "$(INFO)Backing up configs and scripts..."
 	mkdir -p .config
 	mkdir -p .bin
-	@$(call loop_folders,cp -r $$HOME/.config/$$folder ./.config || true)
-	cp -r $$HOME/.bin/. ./.bin/
-	@$(call loop_files,cp $$HOME/$$file ./.config/ || true)
+	@$(call loop_folders,cp -r $(HOME)/.config/$$folder ./.config || true)
+	cp -r $(HOME)/.bin/. ./.bin/
+	@$(call loop_files,cp $(HOME)/$$file ./.config/ || true)
 	@echo -e "$(OK)Backup complete."
 
 packages:
@@ -81,7 +82,7 @@ install:
 	else \
 		echo -e "$(ERROR)Packages installation skipped."; \
 	fi
-	@$(call loop_folders,cp -r ./.config/$$folder $$HOME/.config/ || true)
-	cp -r ./.bin/* $$HOME/.bin/
-	@$(call loop_files,cp ./.config/$$file $$HOME/$$file || true)
+	@$(call loop_folders,cp -r ./.config/$$folder $(HOME)/.config/ || true)
+	cp -r ./.bin/* $(HOME)/.bin/
+	@$(call loop_files,cp ./.config/$$file $(HOME)/$$file || true)
 	@echo -e "$(OK)Install complete."
